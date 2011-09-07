@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>DynamicPopulateExtender</Title>
+      <Author>Jacob Handaya</Author>
+      <Description>Function GetHtml for DynamicPopulateExtender</Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>DynamicPopulateExtender</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>contextKey</ID>
+          <Type />
+          <ToolTip />
+          <Default>contextKey</Default>
+          <Function />
+        </Literal>
+      </Declarations>
+      <Code Language="html" Kind="" Delimiter="$"><![CDATA[
+        [WebMethod]
+        [System.Web.Script.Services.ScriptMethod]
+        public string GetHtml(string $contextKey$)
+        {
+            // A little pause to mimic a latent call
+            System.Threading.Thread.Sleep(300);
+
+            string value = ($contextKey$ == "U") ?
+                DateTime.UtcNow.ToString() :
+                String.Format("{0:" + $contextKey$ + "}", DateTime.Now);
+            return String.Format("<span style='font-family:courier new;font-weight:bold;'>{0}</span>", value);
+        }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

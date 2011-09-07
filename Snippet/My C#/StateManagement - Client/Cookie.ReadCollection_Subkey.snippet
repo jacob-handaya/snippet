@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippet Format="1.0.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+    <Title>Cookie.ReadCollection</Title>
+    <Author>Jacob Handaya</Author>
+    <Description>Cookie Read Collection Subkey</Description>
+    <HelpUrl>
+    </HelpUrl>
+    <Shortcut>Cookie.ReadCollection.Subkey1</Shortcut>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal Editable="true">
+        <ID>Author</ID>
+        <ToolTip>
+        </ToolTip>
+        <Default>Jacob Handaya</Default>
+        <Function>
+        </Function>
+      </Literal>
+      <Literal Editable="true">
+        <ID>userName</ID>
+        <ToolTip>userName</ToolTip>
+        <Default>userName</Default>
+        <Function>
+        </Function>
+      </Literal>
+      <Literal Editable="true">
+        <ID>aCookie</ID>
+        <ToolTip>aCookie</ToolTip>
+        <Default>aCookie</Default>
+        <Function>
+        </Function>
+      </Literal>
+      <Literal Editable="true">
+        <ID>subkeyName</ID>
+        <ToolTip>subkeyName</ToolTip>
+        <Default>subkeyName</Default>
+        <Function>
+        </Function>
+      </Literal>
+      <Literal Editable="true">
+        <ID>subkeyValue</ID>
+        <ToolTip>subkeyValue</ToolTip>
+        <Default>subkeyValue</Default>
+        <Function>
+        </Function>
+      </Literal>
+    </Declarations>
+    <Code Language="csharp"><![CDATA[
+
+for(int i=0; i<Request.Cookies.Count; i++)
+{
+    $aCookie$ = Request.Cookies[i];
+    output.Append("Name = " + $aCookie.Name$ + "<br />");
+    if(aCookie.HasKeys)
+    {
+        for(int j=0; j<$aCookie$.Values.Count; j++)
+        {
+            $subkeyName$ = Server.HtmlEncode($aCookie$.Values.AllKeys[j]);
+            $subkeyValue$ = Server.HtmlEncode($aCookie$.Values[j]);
+            output.Append("Subkey name = " + $subkeyName$ + "<br />");
+            output.Append("Subkey value = " + $subkeyValue$ + 
+                "<br /><br />");
+        }
+    }
+    else
+    {
+        output.Append("Value = " + Server.HtmlEncode($aCookie$.Value) +
+            "<br /><br />");
+    }
+}
+
+
+Label1.Text = output.ToString();
+]]></Code>
+  </Snippet>
+</CodeSnippet>

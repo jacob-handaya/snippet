@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>ConfirmButtonExtender2</Title>
+      <Author></Author>
+      <Description>Confirm Button Extender with New Panel</Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>ConfirmButtonExtender2</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>pnlMessage</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>pnlMessage</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>btn2</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>btn2</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>ModalPopupExtender1</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>ModalPopupExtender1</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>btnCancel</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>btnCancel</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>btnOK</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>btnOK</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>cancelClick</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>cancelClick</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>Label1</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>Label1</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="html" Kind="" Delimiter="$"><![CDATA[
+
+    <script type='text/javascript'>
+        function $cancelClick$() 
+        {
+            var label = $get('MainContent_$Label1$');
+            alert("you just cancel the event and " + label);
+
+            label.innerHTML = 'You hit cancel in the Confirm dialog on ' + (new Date()).localeFormat("T") + '.';
+        }
+    </script>
+
+    <asp:Panel ID="$pnlMessage$" runat="server" 
+			style="display:none; width:200px; background-color:White; border-width:2px; border-color:Black; border-style:solid; padding:20px;">
+                        Are you sure you want to click the Button?
+                        <br />
+						<br />
+                        <div style="text-align:right;">
+                            <asp:Button ID="$btnOK$" runat="server" Text="OK" />
+                            <asp:Button ID="$btnCancel$" runat="server" Text="Cancel" />
+                        </div>
+    </asp:Panel>
+    <ajaxToolkit:ModalPopupExtender ID="$ModalPopupExtender1$" runat="server" 
+                TargetControlID="$btn2$" PopupControlID="$pnlMessage$"
+                OkControlID="$btnOK$" CancelControlID="$btnCancel$"/>
+  	
+   <ajaxToolkit:ConfirmButtonExtender ID="ConfirmButtonExtender2" runat="server" TargetControlID="$btn2$"
+           DisplayModalPopupID="$ModalPopupExtender1$"  
+           OnClientCancel="$cancelClick$" />]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

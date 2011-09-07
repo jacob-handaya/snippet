@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippet Format="1.0.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+    <Title>Cookie.Create.Single</Title>
+    <Author>Jacob Handaya</Author>
+    <Description>Adds a Cookie Single</Description>
+    <HelpUrl>
+    </HelpUrl>
+    <Shortcut>Cookie.Create.Single</Shortcut>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal Editable="true">
+        <ID>Author</ID>
+        <ToolTip>
+        </ToolTip>
+        <Default>Jacob Handaya</Default>
+        <Function>
+        </Function>
+      </Literal>
+      <Literal Editable="true">
+        <ID>userName</ID>
+        <ToolTip>userName</ToolTip>
+        <Default>userName</Default>
+        <Function>
+        </Function>
+      </Literal>
+      <Literal Editable="true">
+        <ID>aCookie</ID>
+        <ToolTip>aCookie</ToolTip>
+        <Default>aCookie</Default>
+        <Function>
+        </Function>
+      </Literal>
+    </Declarations>
+    <Code Language="csharp"><![CDATA[//1st way
+
+Response.Cookies["$userName$"].Value = "patrick";
+Response.Cookies["$userName$"].Expires = DateTime.Now.AddDays(1);
+
+//or
+//2nd way
+HttpCookie $aCookie$ = new HttpCookie("lastVisit");
+$aCookie$.Value = DateTime.Now.ToString();
+$aCookie$.Expires = DateTime.Now.AddDays(1);
+Response.Cookies.Add($aCookie$);
+]]></Code>
+  </Snippet>
+</CodeSnippet>

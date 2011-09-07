@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>ServerTransfer</Title>
+      <Author></Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut></Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="VB" Kind="" Delimiter="$"><![CDATA[
+
+Use the Server.
+Transfer method to redirect between pages in the same application. 
+Using this method in a page, with Server.
+Transfer syntax, avoids unnecessary client-side redirection. 
+Consider Using Server.Transfer Instead of Response.Redirect. 
+
+However, you cannot always just replace Response.Redirect calls with Server.Transfer. 
+
+If you need authentication and authorization checks during redirection, 
+
+use Response.Redirect instead of Server.Transfer 
+because the two mechanisms are not equivalent. 
+
+When you use Response.Redirect, 
+ensure you use the overloaded method that accepts a Boolean second parameter, 
+and pass a value of false to ensure an internal exception is not raised. 
+
+Also note that you can only use Server.Transfer 
+to transfer control to pages in the same application. 
+
+To transfer to pages in other applications, you must use Response.Redirect.
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

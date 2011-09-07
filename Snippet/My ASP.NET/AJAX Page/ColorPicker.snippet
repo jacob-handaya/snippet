@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>ColorPicker2</Title>
+      <Author>Jacob Handaya</Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>ColorPicker2</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>txtColor2</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>txtColor2</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>btnColor</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>btnColor</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>pnlColor</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>pnlColor</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="html" Kind="" Delimiter="$"><![CDATA[
+    <asp:TextBox ID="$txtColor2$" runat="server"></asp:TextBox>
+
+    <asp:Button ID="$btnColor$" runat="server" Text="Color"/>
+
+    <asp:Panel ID="$pnlColor$" runat="server" style="width:18px;height:18px;border:1px solid #000;margin:0 3px;float:left" ></asp:Panel>
+
+    <ajaxToolkit:ColorPickerExtender ID="ColorPickerExtender2" runat="server" TargetControlID="$txtColor2$"
+            PopupButtonID="$btnColor$" SampleControlID="$pnlColor$" SelectedColor="33ffcc" />]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

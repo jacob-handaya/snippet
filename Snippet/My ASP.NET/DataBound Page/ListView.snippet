@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>ListView</Title>
+      <Author>Jacob Handaya</Author>
+      <Description>Adds Accordion Panel to Page</Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords />
+      <Shortcut>ListView</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>Author</ID>
+          <Type />
+          <ToolTip></ToolTip>
+          <Default>Jacob Handaya</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>mySelectName</ID>
+          <Type />
+          <ToolTip>mySelectName</ToolTip>
+          <Default>mySelectName</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>header_name</ID>
+          <Type />
+          <ToolTip>header_name</ToolTip>
+          <Default>header_name</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>Accordion1</ID>
+          <Type />
+          <ToolTip>Accordion1</ToolTip>
+          <Default>Accordion1</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>accordionPanel1</ID>
+          <Type />
+          <ToolTip>accordionPanel1</ToolTip>
+          <Default>accordionPanel1</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="html" Kind="" Delimiter="$"><![CDATA[                    <asp:AccordionPane ID="$accordionPanel1$" runat="server">
+                        <Header><a href="">$header_name$</a></Header>
+                        <Content>
+                              <!-- insert your content here -->
+                        </Content>
+                    </asp:AccordionPane>
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

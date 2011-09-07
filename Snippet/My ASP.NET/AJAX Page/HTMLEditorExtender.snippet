@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>HTMLEditorExtender</Title>
+      <Author>Jacob Handaya</Author>
+      <Description>Add HTML Editor Extender</Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>HTMLEditorExtender</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>txtContent</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>txtContent</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="html" Kind="" Delimiter="$"><![CDATA[
+
+       <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>
+            <asp:TextBox ID="$txtContent$" runat="server" TextMode="MultiLine" Columns="50" Rows="10"></asp:TextBox>
+            <ajaxToolkit:HtmlEditorExtender ID="HtmlEditorExtender1" runat="server" TargetControlID="$txtContent$">
+                    <Toolbar>
+                        <asp:Bold />
+                        <asp:Italic />
+                        <asp:BackgroundColorSelector />
+                        <asp:Underline />
+                        <asp:HorizontalSeparator />
+                        <asp:JustifyLeft />
+                        <asp:JustifyCenter />
+                        <asp:JustifyRight />
+                        <asp:JustifyFull />                                                
+                        <asp:CreateLink />
+                        <asp:UnLink />                            
+                    </Toolbar>
+            </ajaxToolkit:HtmlEditorExtender>
+        </ContentTemplate>
+    </asp:UpdatePanel>]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

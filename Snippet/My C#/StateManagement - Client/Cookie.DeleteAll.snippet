@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippet Format="1.0.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+    <Title>Cookie.DeleteAll</Title>
+    <Author>Jacob Handaya</Author>
+    <Description>Delete All Cookie</Description>
+    <HelpUrl>
+    </HelpUrl>
+    <Shortcut>Cookie.DeleteAll</Shortcut>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal Editable="true">
+        <ID>Author</ID>
+        <ToolTip>
+        </ToolTip>
+        <Default>Jacob Handaya</Default>
+        <Function>
+        </Function>
+      </Literal>
+      <Literal Editable="true">
+        <ID>aCookie</ID>
+        <ToolTip>aCookie</ToolTip>
+        <Default>aCookie</Default>
+        <Function>
+        </Function>
+      </Literal>
+      <Literal Editable="true">
+        <ID>cookieName</ID>
+        <ToolTip>cookieName</ToolTip>
+        <Default>cookieName</Default>
+        <Function>
+        </Function>
+      </Literal>
+    </Declarations>
+    <Code Language="csharp"><![CDATA[
+//shows one way to delete all the cookies available to the application
+
+HttpCookie $aCookie$;
+
+string $cookieName$;
+
+int limit = Request.Cookies.Count;
+for (int i=0; i<limit; i++)
+{
+    $cookieName$ = Request.Cookies[i].Name;
+    $aCookie$ = new HttpCookie($cookieName$);
+    $aCookie$.Expires = DateTime.Now.AddDays(-1);
+    Response.Cookies.Add($aCookie$);
+}
+
+]]></Code>
+  </Snippet>
+</CodeSnippet>

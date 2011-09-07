@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>ReadConnectionString</Title>
+      <Author>Jacob Handaya</Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>ReadConnectionString</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>rootWebConfig</ID>
+          <Type />
+          <ToolTip />
+          <Default>rootWebConfig</Default>
+          <Function />
+        </Literal>
+      </Declarations>
+      <Code Language="csharp" Kind="" Delimiter="$"><![CDATA[
+
+			System.Configuration.Configuration $rootWebConfig$=
+				System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/MyWebSiteRoot");
+			System.Configuration.ConnectionStringSettings connString;
+			if ($rootWebConfig$.ConnectionStrings.ConnectionStrings.Count > 0)
+			{
+				connString =
+					$rootWebConfig$.ConnectionStrings.ConnectionStrings["NorthwindConnectionString"];
+				if (connString != null)
+					Console.WriteLine("Northwind connection string = \"{0}\"",
+						connString.ConnectionString);
+				else
+					Console.WriteLine("No Northwind connection string");
+			}]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

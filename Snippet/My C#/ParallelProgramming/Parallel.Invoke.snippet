@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippet Format="1.0.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+    <Title>Parallel.Invoke.snippet</Title>
+    <Author>Jacob Handaya</Author>
+    <Description>Adds Parallel Invoke</Description>
+    <HelpUrl>
+    </HelpUrl>
+    <Shortcut>Parallel.Invoke.snippet</Shortcut>
+  </Header>
+  <Snippet>
+    <Imports>
+      <Import>
+        <Namespace>System.Threading</Namespace>
+      </Import>
+      <Import>
+        <Namespace>System.Threading.Tasks</Namespace>
+      </Import>
+    </Imports>
+    <Declarations>
+      <Literal Editable="true">
+        <ID>Author</ID>
+        <ToolTip>
+        </ToolTip>
+        <Default>Jacob Handaya</Default>
+        <Function>
+        </Function>
+      </Literal>
+    </Declarations>
+    <Code Language="csharp"><![CDATA[//remove maxCPU if you want to use all CPU in Computer to run the Process
+
+
+            var maxCPU = new ParallelOptions();
+            maxCPU.MaxDegreeOfParallelism = 2;
+            
+            var start = DateTime.Now;
+            Parallel.Invoke(maxCPU, () =>
+                            {
+                                function1("Task A", start);
+                            },
+                            () =>
+                            {
+                                function2("Task B", start);
+                            },
+                            () =>
+                            {
+                                function3("Task C", start);
+                            }
+                            );
+
+]]></Code>
+  </Snippet>
+</CodeSnippet>

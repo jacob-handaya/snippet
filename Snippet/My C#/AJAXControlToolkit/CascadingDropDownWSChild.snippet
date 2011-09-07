@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CascadingDropDownWSChild</Title>
+      <Author></Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut></Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>knownCategoryValuesDictionary</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>knownCategoryValuesDictionary</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>Country</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>Country</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>countryID</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>countryID</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>country</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>country</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>da</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>da</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>dt</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>dt</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="" Delimiter="$"><![CDATA[
+
+        [System.Web.Services.WebMethod]
+        public AjaxControlToolkit.CascadingDropDownNameValue[] GetDropDownCityfromDB(string knownCategoryValues, string category)
+        {
+            //because this method depend on previous method and we must get the previous value (Parent)
+            // Get City based on $Country$
+            System.Collections.Specialized.StringDictionary $knownCategoryValuesDictionary$ 
+                = AjaxControlToolkit.CascadingDropDown.ParseKnownCategoryValuesString(knownCategoryValues);
+
+            string $countryID$;
+
+            if (!$knownCategoryValuesDictionary$.ContainsKey("$Country$"))
+            {
+                return null;
+            }
+            else
+            {
+                $countryID$ = $knownCategoryValuesDictionary$["$Country$"].ToString();
+            }
+
+            string sql;
+            sql = "Select City from Customers where country like @$country$ group by city";
+            List<AjaxControlToolkit.CascadingDropDownNameValue> cascadingValues = new List<AjaxControlToolkit.CascadingDropDownNameValue>();
+
+            SqlDataAdapter $da$ = new SqlDataAdapter(sql, System.Configuration.ConfigurationManager.ConnectionStrings["NORTHWNDConnectionString"].ToString());
+            $da$.SelectCommand.Parameters.Add("@$country$", SqlDbType.VarChar, 50).Value = "%" + $countryID$ + "%";
+
+            DataTable $dt$ = new DataTable();
+            $da$.Fill($dt$);
+
+            foreach (DataRow _row in $dt$.Rows)
+            {
+                string displayValue = _row[0].ToString();
+                string displayID = _row[0].ToString();
+                cascadingValues.Add(new AjaxControlToolkit.CascadingDropDownNameValue(displayValue, displayID));
+            }
+
+            return cascadingValues.ToArray();
+
+        }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

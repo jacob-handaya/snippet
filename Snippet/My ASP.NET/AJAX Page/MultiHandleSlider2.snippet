@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>MultiHandleSlider2</Title>
+      <Author>Jacob Handaya</Author>
+      <Description>Add 2 Slider to the page</Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>MultiHandleSlider2</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>TextBox1</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>TextBox1</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>TextBox2</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>TextBox2</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>TextBox3</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>TextBox3</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>mhSliderExt1</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>mhSliderExt1</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="html" Kind="" Delimiter="$"><![CDATA[<!--
+// it may return you an error on design mode
+// but it would be ok when you run the application
+// ShowInnerRail="true" to show the inner rail
+-->
+                    <asp:TextBox ID="$TextBox1$" runat="server" Text="3" Style="display:none;" />
+                    <asp:TextBox ID="$TextBox2$" runat="server" Text="50" Style="display:none;" />
+                    <asp:TextBox ID="$TextBox3$" runat="server" Text="89" Style="display:none;" />
+                    <ajaxToolkit:MultiHandleSliderExtender ID="$mhSliderExt1$" runat="server"
+                        BehaviorID="$mhSliderExt1$"
+                        TargetControlID="$TextBox1$"
+                        Minimum="0"
+                        Maximum="100"
+                        Length="450"
+                        EnableHandleAnimation="true"
+                        EnableKeyboard="false"
+                        EnableMouseWheel="false"
+                        ShowHandleDragStyle="true"
+                        ShowHandleHoverStyle="true"
+                        TooltipText="Value is {0}"
+                      >
+                        <MultiHandleSliderTargets>
+                            <ajaxToolkit:MultiHandleSliderTarget ControlID="$TextBox2$" />
+                            <ajaxToolkit:MultiHandleSliderTarget ControlID="$TextBox3$" />
+                        </MultiHandleSliderTargets>            
+                    </ajaxToolkit:MultiHandleSliderExtender>]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

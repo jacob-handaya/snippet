@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>DataReaderForFastAndEfficientDataBinding</Title>
+      <Author></Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut></Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="VB" Kind="" Delimiter="$"><![CDATA[
+
+Use a DataReader object if you do not need to cache data, 
+
+if you are displaying read-only data, 
+and if you need to load data into a control as quickly as possible. 
+
+The DataReader is the optimum choice for retrieving read-only data in a forward-only manner. 
+
+Loading the data into a DataSet object 
+and then binding the DataSet to the control moves the data twice. 
+
+This method also incurs the relatively significant expense of constructing a DataSet. 
+
+In addition, when you use the DataReader, 
+
+you can use the specialized type-specific methods to retrieve the data for better performance.
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

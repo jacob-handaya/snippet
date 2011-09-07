@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CalendarExtender</Title>
+      <Author>Jacob Handaya</Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>CalendarExtender</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>NewLiteral</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>NewLiteral</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>txtDate3</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>txtDate3</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>CalendarExtender3</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>CalendarExtender3</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>btnDate</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>btnDate</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="html" Kind="" Delimiter="$"><![CDATA[<!--
+// if you want to trigger the Calendar from textbox then
+-->
+
+    <asp:TextBox ID="$txtDate3$" runat="server"></asp:TextBox>
+
+    <ajaxToolkit:CalendarExtender ID="$CalendarExtender3$" runat="server" Format="yyyy MM dd" 
+			TargetControlID="$txtDate3$" 
+			PopupPosition="Right" 
+			PopupButtonID="$btnDate$"/>
+
+    <asp:Button ID="$btnDate$" runat="server" Text="Button" />]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

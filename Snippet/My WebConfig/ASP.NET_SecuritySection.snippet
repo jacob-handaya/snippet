@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>ASP.NET_SecuritySection</Title>
+      <Author>Jacob Handaya</Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>ASP.NET_SecuritySection</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="XML" Kind="" Delimiter="$"><![CDATA[
+
+<authentication mode="[Windows|Forms|None]">
+  <forms name="name" 
+    loginUrl="url" 
+    protection="[All|None|Encryption|Validation]"
+    timeout="minutes"
+    path="path" 
+    requireSSL="[true|false]" 
+    slidingExpiration="[true|false]">
+    defaultUrl="string"
+    cookieless="[UseCookies|UseUri|AutoDetect|UseDeviceProfile]"
+    domain="string"
+    <credentials passwordFormat="[Clear|MD5|SHA1]">
+      <user name="********" 
+        password="********"/>
+     </credentials>
+  </forms>
+</authentication>
+
+<authorization>
+  <allow users="comma-separated list of users"
+      roles="comma-separated list of roles" 
+      verbs="comma-separated list of verbs" />
+  <deny  users="comma-separated list of users"
+      roles="comma-separated list of roles"
+      verbs="comma-separated list of verbs"  />
+</authorization>
+
+<identity impersonate ="[true|false]"
+  userName="domain\username"
+  password="password" />
+
+<trust level="[Full|High|Medium|Low|Minimal]" 
+  originUrl=""/>
+
+<securityPolicy>
+  <trustLevel name="Full" policyFile="internal"/>
+  <trustLevel name="High" policyFile="web_hightrust.config"/>
+  <trustLevel name="Medium" policyFile="web_mediumtrust.config"/>
+  <trustLevel name="Low"  policyFile="web_lowtrust.config"/>
+  <trustLevel name="Minimal" policyFile="web_minimaltrust.config"/>
+</securityPolicy>]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

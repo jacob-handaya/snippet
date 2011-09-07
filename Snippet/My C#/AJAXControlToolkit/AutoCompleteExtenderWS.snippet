@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>AutoCompleteExtenderWS</Title>
+      <Author>Jacob Handaya</Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>AutoCompleteWS</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>contextKey</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>contextKey</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>prefixText</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>prefixText</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>count</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>count</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>dt</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>dt</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>da</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>da</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp" Kind="" Delimiter="$"><![CDATA[
+        /*
+         * Note that you can replace "GetCompletionFromDB" with a name of your choice, 
+         * but the return type and parameter name and type must exactly match, including case.
+         */
+
+        [System.Web.Services.WebMethod]
+        public string[] GetCompletionFromDB(string $prefixText$, int $count$, string $contextKey$)
+        {
+             $count$ = 10;
+             string sql;
+             if ($contextKey$ == "ContactName")
+             {
+                 sql = "Select * from Customers Where ContactName like @$prefixText$";
+             }
+             else
+             {
+                 sql = "Select * from Customers Where CompanyName like @$prefixText$";
+             }
+
+             SqlDataAdapter $da$ = new SqlDataAdapter(sql, System.Configuration.ConfigurationManager.ConnectionStrings["NORTHWNDConnectionString"].ToString());
+              
+             $da$.SelectCommand.Parameters.Add("@$prefixText$", SqlDbType.VarChar, 50).Value = "%" + $prefixText$+ "%";
+
+             DataTable $dt$ = new DataTable();
+             $da$.Fill($dt$);
+             string[] items = new string[$dt$.Rows.Count];
+             int i = 0;
+
+             foreach (DataRow dr in $dt$.Rows)
+             {
+                 items.SetValue(dr["ContactName"].ToString(), i);
+                 i++;
+             }
+             return items; 
+        }
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

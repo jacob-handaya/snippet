@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>DynamicPopulateExtender</Title>
+      <Author>Jacob Handaya</Author>
+      <Description>Add Dynamic Populate to the Page</Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>DynamicPopulateExtender</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>myBehaviourID</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>myBehaviourID</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>Panel1</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>Panel1</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>Label1</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>Label1</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>dynamicPopulate</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>dynamicPopulate</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>dynamicPopulate_Updating</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>dynamicPopulate_Updating</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>dynamicPopulate_Normal</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>dynamicPopulate_Normal</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>updateDateKey</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>updateDateKey</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="html" Kind="" Delimiter="$"><![CDATA[
+    <style type="text/css">
+        .$dynamicPopulate$_Normal
+        {
+	        border:silver 1px inset;
+	        padding:2px;
+	        text-align:center;
+	        height:2em;
+	        margin:5px;
+	        width:200px;
+        }        
+        .$dynamicPopulate$_Updating 
+        {
+	        background-image:url(loading.gif);
+	        background-repeat:no-repeat;
+	        border:silver 1px inset;
+	        text-align:center;
+	        padding:2px;
+	        height:2em;
+	        margin:5px;
+	        width:200px;
+        }
+
+    </style>
+
+    <script  type="text/javascript">
+        function $updateDateKey$(value) 
+        {
+            var behavior = $find('$myBehaviourID$');
+            if (behavior) 
+             {
+                 behavior.populate(value);
+             }
+        }
+
+        Sys.Application.add_load(function () 
+            { 
+                $updateDateKey$('G'); 
+            });
+    </script>
+
+    <p>
+            <asp:Label ID="$Label1$" runat="server" Text="Label" CssClass="subheading">Time at the server:</asp:Label>  
+    </p>
+    <p>Choose a date/time format:</p>
+    <p>
+       <label for="r0">
+			<input type="radio" name="rbFormat" id="r0" value='G'
+            onclick="$updateDateKey$(this.value);" checked="checked" />Normal
+	   </label>
+	   <br />
+       <label for="r1">
+			<input type="radio" name="rbFormat" id="r1" value='d'
+                onclick="$updateDateKey$(this.value);" />Short Date
+	   </label>
+	   <br />
+       <label for="r2">
+			<input type="radio" name="rbFormat" id="r2" value='D'
+                onclick="$updateDateKey$(this.value);" />Long Date
+	   </label>
+	   <br />
+       <label for="r3">
+			<input type="radio" name="rbFormat" id="r3" value='U'
+                onclick="$updateDateKey$(this.value);" />UTC Date/Time
+	   </label>
+	   <br />
+   </p>
+   <p>
+       This time is dynamically formatted and returned as HTML from the server:</p>
+            <asp:Panel ID="$Panel1$" runat="server" CssClass="$dynamicPopulate_Normal$" />
+        <br />
+
+        <ajaxToolkit:DynamicPopulateExtender ID="DynamicPopulateExtender1" runat="server" 
+            BehaviorID="$myBehaviourID$"
+            TargetControlID="$Panel1$"
+            PopulateTriggerControlID="$Label1$" 
+            ClearContentsDuringUpdate="true" 
+            ServicePath="~/AJAXControlToolkit/AJAXControlToolkitWS.asmx"
+            ServiceMethod="GetHtml" 
+            UpdatingCssClass="$dynamicPopulate_Updating$" 
+        />
+  </p>]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

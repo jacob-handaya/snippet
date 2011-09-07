@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>DisableCaching, Debugging</Title>
+      <Author></Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut></Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="VB" Kind="" Delimiter="$"><![CDATA[
+Before you deploy your application, disable tracing and debugging. 
+Tracing and debugging may cause performance issues. 
+Tracing and debugging are not recommended while your application is running in production. 
+
+You can disable tracing and debugging in the Machine.config and Web.config 
+
+using the syntax below:
+
+
+<configuration>
+   <system.web>
+      <trace enabled="false" pageOutput="false" />
+      <compilation debug="false" />
+   </system.web>
+</configuration>]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

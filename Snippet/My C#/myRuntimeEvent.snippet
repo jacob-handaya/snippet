@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>TimerRuntimeCreate</Title>
+      <Author>Jacob Handaya</Author>
+      <Description>Adds Timer to the code</Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords />
+      <Shortcut>TimerRuntimeCreate</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>Author</ID>
+          <Type />
+          <ToolTip></ToolTip>
+          <Default>Jacob Handaya</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>timer1</ID>
+          <Type />
+          <ToolTip>timer1</ToolTip>
+          <Default>timer1</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>timer1_Tick</ID>
+          <Type />
+          <ToolTip>timer1_Tick</ToolTip>
+          <Default>timer1_Tick</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp" Kind="" Delimiter="$"><![CDATA[// put in on the outside the constructor but in the class
+Timer $timer1$ = new Timer();
+
+//put this on the constructor 
+$timer1$.Tick += new EventHandler($timer1_Tick$); // Everytime timer ticks, timer_Tick will be called
+$timer1$.Interval = (1000) * (1);              // Timer will tick evert second
+$timer1$.Enabled = true;                       // Enable the timer
+$timer1$.Start();   
+
+
+//The Event 
+void $timer1_Tick$(object sender, EventArgs e)
+{
+
+}
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

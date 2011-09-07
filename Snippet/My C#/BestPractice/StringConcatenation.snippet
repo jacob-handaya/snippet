@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>StringConcatenation</Title>
+      <Author></Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut></Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="VB" Kind="" Delimiter="$"><![CDATA[
+
+'Concatenation using StringBuilder
+
+ Response.Write("<b>StringBuilder Class</b>")
+ Dim strbuilder As New StringBuilder()
+ Dim startTime As DateTime = DateTime.Now
+ Response.Write(("<br>Start time:" + startTime.ToString()))
+ Dim i As Integer
+ For i = 0 To 99999
+	 strbuilder.Append(i.ToString())
+ Next i
+ Dim EndTime As DateTime = DateTime.Now
+ Response.Write(("<br>Stop time:" + EndTime.ToString()))
+ Response.Write(("<br># of time Concatenated: " + i.ToString))]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

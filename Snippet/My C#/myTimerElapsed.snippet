@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>TimerElapsedRuntime</Title>
+      <Author>Jacob Handaya</Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords />
+      <Shortcut>TimerElapsedRuntime</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>OnTimedEvent</ID>
+          <Type />
+          <ToolTip>OnTimedEvent</ToolTip>
+          <Default>OnTimedEvent</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>aTimer</ID>
+          <Type />
+          <ToolTip>aTimer</ToolTip>
+          <Default>aTimer</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp" Kind="" Delimiter="$"><![CDATA[
+        private static System.Timers.Timer $aTimer$;
+
+
+        // Create a timer with a ten second interval.
+        $aTimer$ = new System.Timers.Timer(10000);
+
+        // Hook up the Elapsed event for the timer.
+        $aTimer$.Elapsed += new ElapsedEventHandler($OnTimedEvent$);
+
+        // Set the Interval to 2 seconds (2000 milliseconds).
+        $aTimer$.Interval = 2000;
+        $aTimer$.Enabled = true;
+
+   private static void $OnTimedEvent$(object source, ElapsedEventArgs e)
+   {
+        
+   }
+        ]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

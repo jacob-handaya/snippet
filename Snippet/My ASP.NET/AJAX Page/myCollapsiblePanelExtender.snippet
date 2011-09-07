@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CollapsiblePanelExtender.snippet</Title>
+      <Author>Jacob Handaya</Author>
+      <Description>Adds Collapsible Panel Extender to Page</Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords />
+      <Shortcut>CollapsiblePanelExtender.snippet</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>Author</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>Jacob Handaya</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>pnlHeader</ID>
+          <Type></Type>
+          <ToolTip>pnlHeader</ToolTip>
+          <Default>pnlHeader</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>pnlContent</ID>
+          <Type></Type>
+          <ToolTip>pnlContent</ToolTip>
+          <Default>pnlContent</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>img_ToggleImage</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>img_ToggleImage</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="html" Kind="" Delimiter="$"><![CDATA[<!--
+Note: CollapsiblePanel assumes that the standard CSS box model is being used. 
+Early versions of Internet Explorer didn't support that model completely, 
+so please use the !DOCTYPE declaration 
+(as found at the top of this page and enabled by default for new ASP.NET pages) 
+to specify that the page should be rendered in IE's standards-compliant mode. 
+-->
+
+     <asp:Panel ID="$pnlHeader$" runat="server">
+        <div class="heading">
+            <asp:ImageButton ID="$img_ToggleImage$" runat="server" ImageUrl="~/images/collapse.jpg" AlternateText="collapse"  />
+            Header
+        </div>
+     </asp:Panel>
+
+     <asp:Panel ID="$pnlContent$" runat="server">
+            <p>
+                JacobJAcobJacobJacobJAcobJacobJacobJAcobJacob
+                JacobJAcobJacobJacobJAcobJacobJacobJAcobJacob
+            </p>
+            <p>
+                JacobJAcobJacobJacobJAcobJacobJacobJAcobJacob
+                JacobJAcobJacobJacobJAcobJacobJacobJAcobJacob
+            </p>
+     </asp:Panel>
+
+
+
+     <ajaxToolkit:CollapsiblePanelExtender ID="cpeDescription" runat="server" 
+      TargetControlID="$pnlContent$"
+      ExpandControlID="$pnlHeader$"
+      CollapseControlID="$pnlHeader$"
+      Collapsed="true"
+      ImageControlID="$img_ToggleImage$"
+     >
+    </ajaxToolkit:CollapsiblePanelExtender>
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

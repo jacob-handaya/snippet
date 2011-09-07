@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippet Format="1.0.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+    <Title>Cookie.Read.Double</Title>
+    <Author>Jacob Handaya</Author>
+    <Description>Adds a Cookie.Request Double</Description>
+    <HelpUrl>
+    </HelpUrl>
+    <Shortcut>Cookie.Read.Double</Shortcut>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal Editable="true">
+        <ID>Author</ID>
+        <ToolTip>
+        </ToolTip>
+        <Default>Jacob Handaya</Default>
+        <Function>
+        </Function>
+      </Literal>
+      <Literal Editable="true">
+        <ID>userInfo</ID>
+        <ToolTip>userInfo</ToolTip>
+        <Default>userInfo</Default>
+        <Function>
+        </Function>
+      </Literal>
+      <Literal Editable="true">
+        <ID>UserInfoCookieCollection</ID>
+        <ToolTip>UserInfoCookieCollection</ToolTip>
+        <Default>UserInfoCookieCollection</Default>
+        <Function>
+        </Function>
+      </Literal>
+    </Declarations>
+    <Code Language="csharp"><![CDATA[//1st Way
+
+if(Request.Cookies["$userInfo$"] != null)
+{
+    Label1.Text = 
+        Server.HtmlEncode(Request.Cookies["$userInfo$"]["userName"]);
+
+    DateTime dt;
+    dt = DateTime.Parse(Request.Cookies["$userInfo$"]["lastVisit"]);
+
+}
+
+// or
+//2nd Way
+
+
+if(Request.Cookies["$userInfo$"] != null)
+{
+    System.Collections.Specialized.NameValueCollection $UserInfoCookieCollection$;
+       
+    $UserInfoCookieCollection$ = Request.Cookies["$userInfo$"].Values;
+    Label1.Text = Server.HtmlEncode($UserInfoCookieCollection$["userName"]);
+
+    DateTime dt;
+    dt = DateTime.Parse(Server.HtmlEncode($UserInfoCookieCollection$["lastVisit"]));
+}]]></Code>
+  </Snippet>
+</CodeSnippet>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>PagingBulletedList</Title>
+      <Author>Jacob Handaya</Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>PagingBulletedList</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>BulletedList4</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>BulletedList4</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="html" Kind="" Delimiter="$"><![CDATA[<!--
+IndexSize - Number of characters in the index headings (ignored if MaxItemPerPage is set)
+MaxItemPerPage - Maximum number of items per page (ignores the IndexSize property)
+Separator - Separator text to be placed between indices
+-->
+
+    <asp:BulletedList ID="$BulletedList4$" runat="server"
+             BackColor="DodgerBlue"  
+             ForeColor="Snow"  
+             Width="250" 
+    >
+             <asp:ListItem>Magenta</asp:ListItem>  
+             <asp:ListItem>MediumBlue</asp:ListItem>  
+             <asp:ListItem>Orchid</asp:ListItem>  
+             <asp:ListItem>PaleGoldenRod</asp:ListItem>  
+             <asp:ListItem>Maroon</asp:ListItem>  
+    </asp:BulletedList>
+
+    <ajaxToolkit:PagingBulletedListExtender ID="PagingBulletedListExtender1" runat="server"
+                TargetControlID="$BulletedList4$"
+                ClientSort="true"
+                IndexSize="8"
+                Separator=" - "
+                SelectIndexCssClass="selectIndex"
+                UnselectIndexCssClass="unselectIndex" /> ]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

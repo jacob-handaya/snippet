@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>MaskEditValidator</Title>
+      <Author>Jacob Handaya</Author>
+      <Description>Add Mask Edit Validator to the Page</Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>MaskEditValidator</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>mskEditExtend1</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>mskEditExtend1</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>mskEditValid1</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>mskEditValid1</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>txtBox1</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>txtBox1</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="html" Kind="" Delimiter="$"><![CDATA[
+
+    <asp:TextBox ID="$txtBox1$" runat="server"></asp:TextBox>
+    <ajaxToolkit:MaskedEditExtender ID="$mskEditExtend1$" runat="server" 
+            TargetControlID="$txtBox1$" 
+            Mask="9,999,999"
+            MaskType="Number"
+            MessageValidatorTip="true" 
+            ErrorTooltipEnabled="true"
+            />
+    <ajaxToolkit:MaskedEditValidator ID="$mskEditValid1$" runat="server" 
+            ControlToValidate="$txtBox1$"
+            ControlExtender="$mskEditExtend1$"
+            EmptyValueMessage="Number is required"
+            InvalidValueMessage="Number is invalid"
+            MaximumValueMessage="Number &gt; 12000"
+            MinimumValueMessage="Number &lt; -100"
+            MinimumValue="-100"
+            InvalidValueBlurredMessage="*"
+            EmptyValueBlurredText="*"
+            />]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

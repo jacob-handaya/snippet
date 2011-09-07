@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>FilteredTextBox.Number.MathSymbol</Title>
+      <Author>Jacob Handaya</Author>
+      <Description>Filtered Textbox with Number + Math Symbol</Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>FilteredTextBox.Number.MathSymbol</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>txtBox3</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>txtBox3</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="html" Kind="" Delimiter="$"><![CDATA[
+<asp:TextBox ID="$txtBox3$" runat="server" />
+<ajaxToolkit:FilteredTextBoxExtender ID="FilteredTextBoxExtender3" runat="server" 
+		   TargetControlID="$txtBox3$" 
+		   FilterType="Custom, Numbers"
+           ValidChars="+-*/=,.()"/>]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

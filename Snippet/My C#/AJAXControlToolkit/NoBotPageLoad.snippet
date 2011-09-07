@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>NoBotPageLoad</Title>
+      <Author></Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut></Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports>
+        <Import>
+          <Namespace>AjaxControlToolkit</Namespace>
+        </Import>
+      </Imports>
+      <Declarations />
+      <Code Language="VB" Kind="" Delimiter="$"><![CDATA[/*
+Explanation of possible responses:
+
+    Valid: All NoBot tests passed; user appears to be human
+    InvalidBadResponse: An invalid response was provided to the challenge suggesting the challenge script was not run
+    InvalidResponseTooSoon: The postback occurred quickly enough that a human was probably not involved
+    InvalidAddressTooActive: The source IP address has submitted so many responses that a human was probably not involved
+    InvalidBadSession: The ASP.NET session state for this session was unusable
+    InvalidUnknown: An unknown problem occurred
+*/
+
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (IsPostBack)
+            {
+                NoBotState state;
+
+                if (NoBot2.IsValid(out state))
+                {
+                    lblMessage.Text = string.Format("Congratulations, \"{1} {2}\", you do not appear to be a bot. (Details: {0})",
+                                            state.ToString(), TextBox1.Text, TextBox2.Text);
+                    
+                }
+                else
+                {
+                    // not valid show the rejection message
+                    lblMessage.Text = "Rejected; user appears to be a bot. (Details: " + state.ToString() + ")";
+                }
+        }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

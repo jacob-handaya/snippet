@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>ModalPopupExtender</Title>
+      <Author>Jacob Handaya</Author>
+      <Description>Add Modal Popup Extender to the page</Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>ModalPopupExtender</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>pnlChangeLayoutHead</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>pnlChangeLayoutHead</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>lnkBtn1</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>lnkBtn1</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>pnlChangeLayout</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>pnlChangeLayout</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>btnCancel</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>btnCancel</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>btnOK</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>btnOK</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>modalBackground</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>modalBackground</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="html" Kind="" Delimiter="$"><![CDATA[
+
+    <style type="text/css">
+            /*Modal Popup*/
+            .$modalBackground$ {
+	            background-color:Gray;
+	            filter:alpha(opacity=70);
+	            opacity:0.7;
+            }
+
+            .modalPopup {
+	            background-color:#ffffdd;
+	            border-width:3px;
+	            border-style:solid;
+	            border-color:Gray;
+	            padding:3px;
+	            width:250px;
+            }
+    </style>
+
+    <asp:LinkButton ID="$lnkBtn1$" runat="server" Text="Click here" 
+        onclick="$lnkBtn1$_Click"  />
+    <br />
+    <asp:Panel ID="$pnlChangeLayout$" runat="server">
+    <asp:Panel ID="$pnlChangeLayoutHead$" runat="server" Style="cursor: move; background-color: #DDDDDD;
+                border: solid 1px Gray; color: Black">
+                <div>
+                    <p>
+                        Choose the paragraph style you would like:</p>
+                </div>
+            </asp:Panel>
+            <div>
+                <p>
+                    <input type="radio" name="Radio" id="RadioA" checked="checked" onclick="styleToSelect = 'sampleStyleA';" />
+                    <label for="RadioA" class="sampleStyleA" style="padding: 3px;">
+                        Sample paragraph text</label>
+                </p>
+                <p>
+                    <input type="radio" name="Radio" id="RadioB" onclick="styleToSelect = 'sampleStyleB';" />
+                    <label for="RadioB" class="sampleStyleB" style="padding: 3px;">
+                        Sample paragraph text</label>
+                </p>
+                <p style="text-align: center;">
+                    <asp:Button ID="$btnOK$" runat="server" Text="OK" />
+                    <asp:Button ID="$btnCancel$" runat="server" Text="Cancel" />
+                </p>
+            </div>
+    </asp:Panel>
+
+    <ajaxToolkit:ModalPopupExtender ID="modalPopupExtender1" runat="server"
+            TargetControlID="$lnkBtn1$"
+            PopupControlID="$pnlChangeLayout$"
+            PopupDragHandleControlID="$pnlChangeLayoutHead$" 
+            DropShadow="true"
+            BackgroundCssClass="$modalBackground$"
+            OkControlID="$btnOK$"
+            CancelControlID="$btnCancel$" 
+            RepositionMode="RepositionOnWindowResizeAndScroll"
+        />
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

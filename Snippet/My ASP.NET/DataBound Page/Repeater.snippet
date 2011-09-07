@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Repeater</Title>
+      <Author>Jacob Handaya</Author>
+      <Description>Adds RepeaterDataBound</Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords />
+      <Shortcut>Repeater</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>Author</ID>
+          <Type />
+          <ToolTip></ToolTip>
+          <Default>Jacob Handaya</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>mySelectName</ID>
+          <Type />
+          <ToolTip>mySelectName</ToolTip>
+          <Default>mySelectName</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>header_name</ID>
+          <Type />
+          <ToolTip>header_name</ToolTip>
+          <Default>header_name</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>Accordion1</ID>
+          <Type />
+          <ToolTip>Accordion1</ToolTip>
+          <Default>Accordion1</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>accordionPanel1</ID>
+          <Type />
+          <ToolTip>accordionPanel1</ToolTip>
+          <Default>accordionPanel1</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="html" Kind="" Delimiter="$"><![CDATA[<asp:Repeater ID="Repeater2" runat="server" DataSourceID="SqlDataSource1">
+        <HeaderTemplate>
+        <table>
+            <tr>
+                <th>ID EMP</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Phone</th>
+            </tr>            
+        </HeaderTemplate>
+        <ItemTemplate>
+        <tr>
+            <td><%#DataBinder.Eval(Container,"DataItem.ID_EMP")%></td>
+            <td><%#DataBinder.Eval(Container,"DataItem.FIRST_NAME")%></td>
+            <td><%#DataBinder.Eval(Container,"DataItem.LAST_NAME")%></td>
+            <td><%#DataBinder.Eval(Container,"DataItem.Phone")%></td>
+        </tr>
+        </ItemTemplate>
+        <FooterTemplate>
+        </table>
+        </FooterTemplate>
+    </asp:Repeater>
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

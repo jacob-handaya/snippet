@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>ConfirmButtonExtender1</Title>
+      <Author>Jacob Handaya</Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>ConfirmButtonExtender1</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>cancelClick</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>cancelClick</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>Label1</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>Label1</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>btnClickMe</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>btnClickMe</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="html" Kind="" Delimiter="$"><![CDATA[
+
+    <script type='text/javascript'>
+        function $cancelClick$() 
+        {
+			// get the $Label1$ ID
+            var label = $get('MainContent_$Label1$');
+            alert("you just cancel the event and " + label);
+
+            label.innerHTML = 'You hit cancel in the Confirm dialog on ' + (new Date()).localeFormat("T") + '.';
+        }
+    </script>
+
+    <asp:Button ID="$btnClickMe$" runat="server" Text="Click Me" />
+    <br />
+    <br />
+    <ajaxToolkit:ConfirmButtonExtender ID="ConfirmButtonExtender1" runat="server" TargetControlID="$btnClickMe$" 
+            ConfirmText="You Click Click Me" OnClientCancel="$cancelClick$" />
+    <asp:Label ID="$Label1$" runat="server" Text="Label">Jacob</asp:Label>
+
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>HTMLEditor</Title>
+      <Author>Jacob Handaya</Author>
+      <Description>Add HTML Editor to the page</Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>HTMLEditor</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="html" Kind="" Delimiter="$"><![CDATA[
+
+  <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>
+            <cc1:Editor ID="htmlEditor" runat="server" Height="300px" AutoFocus="true" Width="80%" />
+            <asp:Label runat="server" ID="lblContent" />
+            <br />
+            <asp:Button runat="server" Text="Submit content" ID="btnSubmit" />
+        </ContentTemplate>
+  </asp:UpdatePanel>]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

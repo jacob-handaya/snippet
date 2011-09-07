@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>ColorPicker1</Title>
+      <Author>Jacob Handaya</Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>ColorPicker1</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>colorChanged</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>colorChanged</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>txtColor1</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>txtColor1</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="html" Kind="" Delimiter="$"><![CDATA[
+
+    <script type="text/javascript">
+        function $colorChanged$(sender) {
+            sender.get_element().style.color = "#" + sender.get_selectedColor();
+        }        
+    </script>
+    <asp:TextBox ID="$txtColor1$" runat="server"></asp:TextBox>
+    <ajaxToolkit:ColorPickerExtender ID="ColorPickerExtender1" runat="server" TargetControlID="$txtColor1$"  
+			OnClientColorSelectionChanged="$colorChanged$"/>]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CreateUserWizard</Title>
+      <Author>Jacob Handaya</Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>CreateUserWizard</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>Createuserwizard1</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>Createuserwizard1</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>txtUserName</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>txtUserName</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>txtPassword</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>txtPassword</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>txtConfirmPassword</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>txtConfirmPassword</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>txtEmail</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>txtEmail</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>txtQuestion</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>txtQuestion</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>txtAnswer</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>txtAnswer</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp" Kind="" Delimiter="$"><![CDATA[
+
+      <asp:createuserwizard id="Createuserwizard2" runat="server">
+        <wizardsteps>
+          <asp:createuserwizardstep ID="Createuserwizardstep1" runat="server" title="Sign Up for Your New Account">
+            <contenttemplate>
+              <table border="0">
+                <tr>
+                  <td>
+                    <table border="0" style="height: 100%; width: 100%;">
+                      <tr>
+                        <td align="center" colspan="2">
+                          Sign Up for Your New Account</td>
+                      </tr>
+                      <tr>
+                        <td align="right">
+                          <asp:label runat="server" associatedcontrolid="UserName" id="UserNameLabel">
+                            User Name:</asp:label></td>
+                        <td>
+                          <asp:textbox runat="server" id="UserName"></asp:textbox>
+                          <asp:requiredfieldvalidator runat="server" controltovalidate="UserName" tooltip="User Name is required."
+                            id="UserNameRequired" validationgroup="Createuserwizard1" errormessage="User Name is required.">
+                            *</asp:requiredfieldvalidator>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="right">
+                          <asp:label runat="server" associatedcontrolid="Password" id="PasswordLabel">
+                            Password:</asp:label></td>
+                        <td>
+                          <asp:textbox runat="server" textmode="Password" id="Password"></asp:textbox>
+                          <asp:requiredfieldvalidator runat="server" controltovalidate="Password" tooltip="Password is required."
+                            id="PasswordRequired" validationgroup="Createuserwizard1" errormessage="Password is required.">
+                            *</asp:requiredfieldvalidator>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="right">
+                          <asp:label runat="server" associatedcontrolid="ConfirmPassword" id="ConfirmPasswordLabel">
+                            Confirm Password:</asp:label></td>
+                        <td>
+                          <asp:textbox runat="server" textmode="Password" id="ConfirmPassword"></asp:textbox>
+                          <asp:requiredfieldvalidator runat="server" controltovalidate="ConfirmPassword" tooltip="Confirm Password is required."
+                            id="ConfirmPasswordRequired" validationgroup="Createuserwizard1" errormessage="Confirm Password is required.">
+                            *</asp:requiredfieldvalidator>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="right">
+                          <asp:label runat="server" associatedcontrolid="Email" id="EmailLabel">
+                            Email:</asp:label></td>
+                        <td>
+                          <asp:textbox runat="server" id="Email"></asp:textbox>
+                          <asp:requiredfieldvalidator runat="server" controltovalidate="Email" tooltip="Email is required."
+                            id="EmailRequired" validationgroup="Createuserwizard1" errormessage="Email is required.">
+                            *</asp:requiredfieldvalidator>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="right">
+                          <asp:label runat="server" associatedcontrolid="Question" id="QuestionLabel">
+                            Security Question:</asp:label></td>
+                        <td>
+                          <asp:textbox runat="server" id="Question"></asp:textbox>
+                          <asp:requiredfieldvalidator runat="server" controltovalidate="Question" tooltip="Security question is required."
+                            id="QuestionRequired" validationgroup="Createuserwizard1" errormessage="Security question is required.">
+                            *</asp:requiredfieldvalidator>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="right">
+                          <asp:label runat="server" associatedcontrolid="Answer" id="AnswerLabel">
+                            Security Answer:</asp:label></td>
+                        <td>
+                          <asp:textbox runat="server" id="Answer"></asp:textbox>
+                          <asp:requiredfieldvalidator runat="server" controltovalidate="Answer" tooltip="Security answer is required."
+                            id="AnswerRequired" validationgroup="Createuserwizard1" errormessage="Security answer is required.">
+                            *</asp:requiredfieldvalidator>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="center" colspan="2">
+                          <asp:comparevalidator runat="server" display="Dynamic" errormessage="The Password and Confirmation Password must match."
+                            controltocompare="ConfirmPassword" controltovalidate="Password" id="PasswordCompare"
+                            validationgroup="Createuserwizard1">
+                          </asp:comparevalidator>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="center" colspan="2" style="color: Red;">
+                          <asp:literal runat="server" enableviewstate="False" id="FailureText">
+                          </asp:literal>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </contenttemplate>
+          </asp:createuserwizardstep>
+          <asp:completewizardstep ID="Completewizardstep2" runat="server" title="Complete">
+            <contenttemplate>
+              <table border="0">
+                <tr>
+                  <td>
+                    <table border="0" style="height: 100%; width: 100%;">
+                      <tr>
+                        <td align="center" colspan="2">
+                          Complete</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Your account has been successfully created.</td>
+                      </tr>
+                      <tr>
+                        <td align="right" colspan="2">
+                          <asp:button runat="server" validationgroup="Createuserwizard1" commandname="Continue"
+                            id="ContinueButton" causesvalidation="False" text="Continue" />
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </contenttemplate>
+          </asp:completewizardstep>
+        </wizardsteps>
+      </asp:createuserwizard>]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

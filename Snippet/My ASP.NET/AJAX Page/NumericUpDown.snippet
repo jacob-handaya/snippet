@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>NumericUpDown1</Title>
+      <Author>Jacob Handaya</Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>NumericUpDown1</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>txtBox1</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>txtBox1</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>NumericUpDownExtender1</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>NumericUpDownExtender1</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="html" Kind="" Delimiter="$"><![CDATA[<!-- Numeric Updown 1 - 7 -->
+
+
+    <asp:TextBox ID="$txtBox1$" runat="server" Text="5"></asp:TextBox>
+    <ajaxToolkit:NumericUpDownExtender ID="$NumericUpDownExtender1$" runat="server"
+                TargetControlID="$txtBox1$"
+                Width="120"
+                RefValues="" 
+                ServiceDownPath=""
+                ServiceDownMethod=""
+                ServiceUpPath=""
+                ServiceUpMethod=""
+                TargetButtonDownID=""
+                TargetButtonUpID="" 
+                Minimum = "1"
+                Maximum = "7" />]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

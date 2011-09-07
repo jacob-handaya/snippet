@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>SessionArray</Title>
+      <Author>Jacob Handaya</Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>SessionArray</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="csharp" Kind="" Delimiter="$"><![CDATA[
+
+// When retrieving an object from session state, cast it to 
+// the appropriate type.
+ArrayList stockPicks = (ArrayList)Session["StockPicks"];
+
+// Write the modified stock picks list back to session state.
+Session["StockPicks"] = stockPicks;]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

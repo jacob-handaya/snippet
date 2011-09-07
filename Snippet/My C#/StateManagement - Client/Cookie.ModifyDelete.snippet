@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippet Format="1.0.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+    <Title>Cookie.ModifyDelete</Title>
+    <Author>Jacob Handaya</Author>
+    <Description>Modify Cookie</Description>
+    <HelpUrl>
+    </HelpUrl>
+    <Shortcut>Cookie.ModifyDelete</Shortcut>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal Editable="true">
+        <ID>Author</ID>
+        <ToolTip>
+        </ToolTip>
+        <Default>Jacob Handaya</Default>
+        <Function>
+        </Function>
+      </Literal>
+    </Declarations>
+    <Code Language="csharp"><![CDATA[
+// just overwrite it
+// if you want to delete it set expires to outdated day
+
+Response.Cookies["userInfo"]["lastVisit"] = DateTime.Now.ToString();
+Response.Cookies["userInfo"].Expires = DateTime.Now.AddDays(1);]]></Code>
+  </Snippet>
+</CodeSnippet>

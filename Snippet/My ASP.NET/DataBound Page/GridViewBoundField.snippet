@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>GridViewBoundField</Title>
+      <Author>Jacob Handaya</Author>
+      <Description>Adds Grid View + Bound Field to the Page</Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords />
+      <Shortcut>GridViewBoundField</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>Author</ID>
+          <Type />
+          <ToolTip></ToolTip>
+          <Default>Jacob Handaya</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="html" Kind="" Delimiter="$"><![CDATA[                    <asp:GridView ID="GridView1" runat="server" Width="464px" Height="248px" 
+                        AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" 
+                        DataSourceID="SqlDataSource1" 
+                        onselectedindexchanged="GridView1_SelectedIndexChanged" 
+                        OnRowCommand="GridView1_RowCommand">
+                        <Columns>
+                            <asp:CommandField ShowEditButton="True" />
+                            <asp:BoundField DataField="ID_EMP" HeaderText="ID_EMP" 
+                                SortExpression="ID_EMP" />
+                            <asp:BoundField DataField="FIRST_NAME" HeaderText="FIRST_NAME" 
+                                SortExpression="FIRST_NAME" />
+                            <asp:BoundField DataField="LAST_NAME" HeaderText="LAST_NAME" 
+                                SortExpression="LAST_NAME" />
+                            <asp:BoundField DataField="Phone" HeaderText="Phone" SortExpression="Phone" />
+                            <asp:BoundField DataField="Description" HeaderText="Description" 
+                                SortExpression="Description" />
+                        </Columns>
+                    </asp:GridView>
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

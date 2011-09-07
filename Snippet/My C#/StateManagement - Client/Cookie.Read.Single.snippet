@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippet Format="1.0.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+    <Title>Cookie.Read.Single</Title>
+    <Author>Jacob Handaya</Author>
+    <Description>Adds a Cookie.Request</Description>
+    <HelpUrl>
+    </HelpUrl>
+    <Shortcut>Cookie.Read.Single</Shortcut>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal Editable="true">
+        <ID>Author</ID>
+        <ToolTip>
+        </ToolTip>
+        <Default>Jacob Handaya</Default>
+        <Function>
+        </Function>
+      </Literal>
+      <Literal Editable="true">
+        <ID>aCookie</ID>
+        <ToolTip>aCookie</ToolTip>
+        <Default>aCookie</Default>
+        <Function>
+        </Function>
+      </Literal>
+      <Literal Editable="true">
+        <ID>userName</ID>
+        <ToolTip>userName</ToolTip>
+        <Default>userName</Default>
+        <Function>
+        </Function>
+      </Literal>
+    </Declarations>
+    <Code Language="csharp"><![CDATA[
+//1st Way
+if(Request.Cookies["$userName$"] != null)
+    lblUserName.Text = Server.HtmlEncode(Request.Cookies["$userName$"].Value);
+
+//or
+
+//2nd Way
+if(Request.Cookies["$userName$"] != null)
+{
+    HttpCookie $aCookie$ = Request.Cookies["$userName$"];
+    lblUserName.Text = Server.HtmlEncode($aCookie$.Value);
+}]]></Code>
+  </Snippet>
+</CodeSnippet>

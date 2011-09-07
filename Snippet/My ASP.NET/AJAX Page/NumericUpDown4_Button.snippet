@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>NumericUpDown4_Button</Title>
+      <Author>Jacob Handaya</Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>NumericUpDown4_Button</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>txtBox4</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>txtBox4</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>btnPrevious</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>btnPrevious</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>btnNext</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>btnNext</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="html" Kind="" Delimiter="$"><![CDATA[
+
+    <asp:TextBox ID="$txtBox4$" runat="server" Text="20"></asp:TextBox>
+    <ajaxToolkit:NumericUpDownExtender ID="NumericUpDownExtender4" runat="server" 
+        TargetControlID="$txtBox4$"
+        RefValues=""
+        ServiceDownPath=""
+        ServiceDownMethod=""
+        ServiceUpPath="" 
+        ServiceUpMethod="" 
+        TargetButtonDownID="$btnPrevious$"
+        TargetButtonUpID="$btnNext$"
+    />
+
+    <asp:Button ID="$btnPrevious$" runat="server" Text="Previous" />
+    <asp:Button ID="$btnNext$" runat="server" Text="Next" />]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

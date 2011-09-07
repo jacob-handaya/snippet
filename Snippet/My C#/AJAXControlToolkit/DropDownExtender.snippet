@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>DropDownExtender1</Title>
+      <Author>Jacob Handaya</Author>
+      <Description>Add Drop Down Extender code to support the page Process to the Code</Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>DropDownExtender1</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="csharp" Kind="" Delimiter="$"><![CDATA[
+
+       protected void OnSelect(object sender, EventArgs e)
+       {
+            lblChose.Text = ((LinkButton)sender).Text;
+       }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

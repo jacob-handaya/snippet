@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>SqlCommandExecute</Title>
+      <Author>Jacob Handaya</Author>
+      <Description>Adds SqlCommand into the Code</Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords />
+      <Shortcut>SqlCommandExecute</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports>
+        <Import>
+          <Namespace>System.Data</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Data.SqlClient</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>Author</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>Jacob Handaya</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>myCommand</ID>
+          <Type></Type>
+          <ToolTip>myCommand</ToolTip>
+          <Default>myCommand</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>table_name</ID>
+          <Type></Type>
+          <ToolTip>table_name</ToolTip>
+          <Default>table_name</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>myReader</ID>
+          <Type></Type>
+          <ToolTip>myReader</ToolTip>
+          <Default>myReader</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>field_name</ID>
+          <Type></Type>
+          <ToolTip>field_name</ToolTip>
+          <Default>field_name</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>param1</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>param1</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp" Kind="" Delimiter="$"><![CDATA[
+                System.Data.SqlClient.SqlCommand $myCommand$ = new System.Data.SqlClient.SqlCommand();
+
+                $myCommand$.Connection = myConnection;
+                //INSERT or UPDATE STATEMENT
+                $myCommand$.CommandText = "INSERT";
+
+                System.Data.SqlClient.SqlParameter $param1$ = new System.Data.SqlClient.SqlParameter("@$FIELD1$", SqlDbType.NVarChar, 15);
+                $param1$.Value = "";
+
+                $myCommand$.Parameters.Add($param1$);
+
+                $myCommand$.ExecuteNonQuery();
+
+
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

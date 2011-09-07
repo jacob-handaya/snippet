@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CascadingDropDownWSParent</Title>
+      <Author>Jacob Handaya</Author>
+      <Description>CascadingDropDownWSParent Get the value from Database</Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>CascadingDropDownWSParent</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports>
+        <Import>
+          <Namespace>System.Data.SqlClient</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Data</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>GetDropDownCountryfromDB</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>GetDropDownCountryfromDB</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>dt</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>dt</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>da</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>da</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp" Kind="" Delimiter="$"><![CDATA[
+
+        [System.Web.Services.WebMethod]
+        public AjaxControlToolkit.CascadingDropDownNameValue[] $GetDropDownCountryfromDB$(string knownCategoryValues, string category)
+        {
+            string sql;
+            sql = "Select Country from Customers group by Country";
+
+            List<AjaxControlToolkit.CascadingDropDownNameValue> cascadingValues = new List<AjaxControlToolkit.CascadingDropDownNameValue>();
+            
+            SqlDataAdapter $da$ = new SqlDataAdapter(sql, System.Configuration.ConfigurationManager.ConnectionStrings["NORTHWNDConnectionString"].ToString());
+
+            DataTable $dt$ = new DataTable();
+            $da$.Fill($dt$);
+
+            foreach (DataRow _row in $dt$.Rows)
+            {
+                string displayValue = _row[0].ToString();
+                string displayID = _row[0].ToString();
+                cascadingValues.Add(new AjaxControlToolkit.CascadingDropDownNameValue(displayValue, displayID ));
+
+            }
+
+            return cascadingValues.ToArray();
+
+        }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Login</Title>
+      <Author>Jacob Handaya</Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>Login</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="html" Kind="" Delimiter="$"><![CDATA[
+<%
+
+protected void OnAuthenticate(object sender, AuthenticateEventArgs e)
+{
+    e.Authenticated = Membership.ValidateUser(Login1.UserName, Login1.Password);
+    if (!e.Authenticated)
+    {
+        popup.Show();
+    }
+}
+
+%>
+
+<asp:Login ID = "Login1" runat = "server" OnAuthenticate = "OnAuthenticate">
+</asp:Login>]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

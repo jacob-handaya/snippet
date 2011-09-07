@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>NumericUpDown2</Title>
+      <Author>Jacob Handaya</Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>NumericUpDown2</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>txtBox2</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>txtBox2</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="html" Kind="" Delimiter="$"><![CDATA[
+
+    <asp:TextBox ID="$txtBox2$" runat="server" Text="Juni"></asp:TextBox>
+    <ajaxToolkit:NumericUpDownExtender ID="NumericUpDownExtender2" runat="server"
+                TargetControlID="$txtBox2$"
+                Width="120"
+                RefValues="Jan;Feb;Mar;Juni;July;Aug;Sep;Oct;Nov;Dec" 
+                ServiceDownPath=""
+                ServiceDownMethod=""
+                ServiceUpPath=""
+                ServiceUpMethod=""
+                TargetButtonDownID=""
+                TargetButtonUpID="" 
+     />]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CascadingDropDown</Title>
+      <Author>Jacob Handaya</Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>CascadingDropDown</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>ddlOne</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>ddlOne</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="html" Kind="" Delimiter="$"><![CDATA[
+    <asp:DropDownList ID="$ddlOne$" runat="server">
+    </asp:DropDownList>
+
+   <ajaxToolkit:CascadingDropDown ID="CascadingDropDown1" runat="server" TargetControlID="$ddlOne$"
+             PromptText="Please Select"
+             Category="Country"
+             ServicePath="~/AJAXControlToolkit/AJAXControlToolkitWS.asmx" 
+             ServiceMethod="GetDropDownCountryfromDB"     
+             LoadingText="Loading (....)" 
+             EmptyText=""
+             EmptyValue=""/>]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

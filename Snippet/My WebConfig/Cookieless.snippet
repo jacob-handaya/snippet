@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Cookieless</Title>
+      <Author>Jacob Handaya</Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>Cookieless</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="XML" Kind="" Delimiter="$"><![CDATA[<!--
+The main reason for cookieless sessions in ASP.NET 
+	is that users—for whatever reasons—may have cookies disabled on their browsers. 
+Like it or not, this is a situation you have to face 
+		if your application requires session state.
+-->
+
+<configuration>
+
+<system.web>
+<sessionState 
+   mode="InProc" 
+   stateConnectionString="tcpip=127.0.0.1:42424" 
+   stateNetworkTimeout="10" 
+   sqlConnectionString="data source=127.0.0.1;Integrated Security=SSPI" 
+   sqlCommandTimeout="30" 
+   customProvider="" 
+   cookieless="UseCookies" 
+   cookieName="ASP.NET_SessionId" 
+   timeout="20" 
+   allowCustomSqlDatabase="false" 
+   regenerateExpiredSessionId="true" 
+   partitionResolverType="" 
+   useHostingIdentity="true">
+   <providers>
+      <clear />
+   </providers>
+</sessionState>
+</system.web>
+
+</configuration>]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

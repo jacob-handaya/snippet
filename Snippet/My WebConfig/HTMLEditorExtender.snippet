@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>HTMLEditorExtender</Title>
+      <Author>Jacob Handaya</Author>
+      <Description>Add Web Config for HTML Editor Extender</Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>HTMLEditorExtender</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="XML" Kind="" Delimiter="$"><![CDATA[
+<configuration>
+<configSections>
+  <sectionGroup name="system.web">
+	<section name="sanitizer" 
+      requirePermission="false" 
+      type="AjaxControlToolkit.Sanitizer.ProviderSanitizerSection, 
+        AjaxControlToolkit"/>
+      </sectionGroup>
+</configSections>
+<system.web>
+	<compilation targetFramework="4.0" debug="true"/>
+	<sanitizer defaultProvider="AntiXssSanitizerProvider">
+		<providers>
+			<add name="AntiXssSanitizerProvider" 
+            type="AjaxControlToolkit.Sanitizer.
+              AntiXssSanitizerProvider"></add>
+		</providers>
+	</sanitizer>
+</system.web>
+</configuration>]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>ConnectionString</Title>
+      <Author></Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut></Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="VB" Kind="" Delimiter="$"><![CDATA[
+
+
+'Standard Security alternative syntax
+conStr = "Server=myServerAddress;Database=myDataBase;User ID=myUsername;Password=myPassword;Trusted_Connection=False;"
+
+
+'Trusted Connection with Alternative Syntax
+conStr = "Server=myServerAddress;Database=myDataBase;Trusted_Connection=True;"
+
+
+'Connecting to an SQL Server instance 
+conStr = "Server=myServerName\theInstanceName;Database=myDataBase;Trusted_Connection=True;"
+
+
+'Trusted Connection from a CE device
+conStr = "Data Source=myServerAddress;Initial Catalog=myDataBase;Integrated Security=SSPI;User ID=myDomain\myUsername;Password=myPassword;"
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

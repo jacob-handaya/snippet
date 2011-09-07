@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>SqlConnection</Title>
+      <Author>Jacob Handaya</Author>
+      <Description>Adds SqlConnection into the Code</Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords />
+      <Shortcut>SqlConnection</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports>
+        <Import>
+          <Namespace>System.Data</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Data.SqlClient</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>Author</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>Jacob Handaya</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>myConnection</ID>
+          <Type></Type>
+          <ToolTip>myConnection</ToolTip>
+          <Default>myConnection</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>myWebConfigDBConn</ID>
+          <Type></Type>
+          <ToolTip>myWebConfigDBConn</ToolTip>
+          <Default>myWebConfigDBConn</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp" Kind="" Delimiter="$"><![CDATA[
+            System.Data.SqlClient.SqlConnection $myConnection$ = new System.Data.SqlClient.SqlConnection();
+            $myConnection$.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["$myWebConfigDBConn$"].ToString();
+            try
+            {
+                $myConnection$.Open();
+
+
+            }
+            catch(Exception ex)
+            {
+                String errorMessage = ex.Message;
+            }
+	        finally
+	        {
+                if ($myConnection$.State != ConnectionState.Closed)
+                {
+                    $myConnection$.Close();
+                }
+    	    }
+
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>DropDownExtender1</Title>
+      <Author>Jacob Handaya</Author>
+      <Description>Add Drop Down Extender to the Code</Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>DropDownExtender1</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>lblFave</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>lblFave</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>pnlOption</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>pnlOption</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="html" Kind="" Delimiter="$"><![CDATA[
+
+    <asp:Label ID="$lblFave$" runat="server" Text="Select your favorite food ?"></asp:Label>
+
+    <asp:Panel ID="$pnlOption$" runat="server"  CssClass="ContextMenuPanel" Style="display :none; visibility: hidden;">
+            <asp:LinkButton runat="server" ID="Option1" Text="Thai food" CssClass="ContextMenuItem" OnClick="OnSelect" />
+            <asp:LinkButton runat="server" ID="Option2" Text="Chinese food" CssClass="ContextMenuItem" OnClick="OnSelect" />
+            <asp:LinkButton runat="server" ID="Option3" Text="Western food" CssClass="ContextMenuItem" OnClick="OnSelect" />  
+    </asp:Panel>
+
+    <ajaxToolkit:DropDownExtender ID="DropDownExtender1" runat="server" TargetControlID="$lblFave$" DropDownControlID="$pnlOption$" />
+    
+    <br />
+    <br />
+    <asp:Label ID="lblChose" runat="server" Text="Label"></asp:Label>]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

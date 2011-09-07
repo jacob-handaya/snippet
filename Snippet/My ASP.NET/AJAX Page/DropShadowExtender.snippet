@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>DropShadowExtender</Title>
+      <Author>Jacob Handaya</Author>
+      <Description>Add Drop shadow, Rounded Effect to the panel</Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>DropShadowExtender</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>pnlInput</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>pnlInput</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="html" Kind="" Delimiter="$"><![CDATA[<!--
+width = width the shadow from the panel
+
+TrackPosition - A Boolean value that specifies 
+		whether the dropshadow should track the position of the panel it is attached to. 
+Set this property to true if the panel is absolutely positioned 
+		or if it might move at run time. The default is false.
+-->
+
+    <asp:Panel ID="$pnlInput$" runat="server" BackColor="#0099CC" Width="400px">
+            <div style="padding:10px">  
+                First Name: <asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox>
+				<br />
+                Last Name: <asp:TextBox ID="txtLastName" runat="server"></asp:TextBox>
+				<br />
+            </div>
+    </asp:Panel>
+
+    <ajaxToolkit:DropShadowExtender ID="DropShadowExtender1" runat="server" 
+            TargetControlID="$pnlInput$" 
+            Width="20"
+            Rounded="true"
+            Radius="6"
+            Opacity=".75"
+            TrackPosition="true" 
+    />]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

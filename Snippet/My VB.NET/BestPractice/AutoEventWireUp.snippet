@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>AutoEventWireUp</Title>
+      <Author></Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut></Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="VB" Kind="" Delimiter="$"><![CDATA[
+
+You may use the AutoEventWireup attribute to code ASP.NET Web Forms 
+and Web User Controls.
+
+
+When you set the value of the AutoEventWireup attribute to true, 
+the code in ASP.NET Web Forms and in Web User Controls is simple. 
+
+However, When you use the false value in certain circumstances,
+you may receive better performance.
+
+
+You can specify a default value of the AutoEventWireup attribute in several places:
+ - The Machine.config file
+ - The Web.config file
+ - Individual ASP.NET Web Forms (.aspx files)
+ - Web User Controls (.ascx files)
+
+
+When you set the value of the AutoEventWireup attribute to true, 
+the ASP.NET runtime does not require events to specify event handlers 
+like the Page_Load event or the Page_Init event. 
+
+This means that in Visual C# .NET, you do not have to initialize 
+and to create the delegate structures.
+
+
+
+<configuration>
+   <system.web>
+      <pages autoEventWireup="true|false" />
+   </system.web>
+</configuration>
+
+If performance is a key consideration, 
+do not set the value of the AutoEventWireup attribute to true. 
+
+The AutoEventWireup attribute 
+requires the ASP.NET page framework to make a call to the CreateDelegate 
+function for every ASP.NET Web Form page. 
+
+Instead of using automatic hookup, you must manually override the events from the page. 
+
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

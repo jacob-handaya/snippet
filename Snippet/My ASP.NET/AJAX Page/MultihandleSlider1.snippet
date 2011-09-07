@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>MultihandleSlider1</Title>
+      <Author>Jacob Handaya</Author>
+      <Description>Add Multihandle Slider to page</Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>MultihandleSlider1</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>txtInputValue</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>txtInputValue</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>lblInputValue</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>lblInputValue</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="html" Kind="" Delimiter="$"><![CDATA[<!--
+//specify default value to Text in the Textbox
+-->
+
+    <asp:TextBox ID="$txtInputValue$" runat="server" Text="20"></asp:TextBox>
+    <ajaxToolkit:MultiHandleSliderExtender ID="MultiHandleSliderExtender1" runat="server"
+            TargetControlID="$txtInputValue$"
+            Minimum="-100"
+            Maximum="100"
+            Length="200"
+            BoundControlID="$lblInputValue$"
+            TooltipText="Value is {0}"
+            Orientation="Horizontal"
+     />
+     <br />
+    <asp:Label ID="$lblInputValue$" runat="server" Text="0" />]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

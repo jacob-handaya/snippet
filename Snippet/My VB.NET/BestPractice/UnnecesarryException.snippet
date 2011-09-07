@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>UnnecesarryException2</Title>
+      <Author></Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>UnnecesarryException2</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="VB" Kind="" Delimiter="$"><![CDATA[
+'Unnecessary use of exception
+
+Try
+	value = HttpContext.Current.Session("Value").ToString
+Catch ex As Exception
+	Response.Redirect("Main.aspx", False)
+End Try
+ 
+'Recommended code 
+
+If Not HttpContext.Current.Session("Value") Is Nothing Then
+	value = HttpContext.Current.Session("Value").ToString
+Else
+	Response.Redirect("Main.aspx", False)
+End If]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

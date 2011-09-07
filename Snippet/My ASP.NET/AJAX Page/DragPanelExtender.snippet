@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>DragPanelExtender</Title>
+      <Author>Jacob Handaya</Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>DragPanelExtender</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>pnlDragControl</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>pnlDragControl</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>pnlDrag</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>pnlDrag</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="html" Kind="" Delimiter="$"><![CDATA[    <asp:Panel ID="$pnlDrag$" runat="server" Width="250px">
+              <asp:Panel ID="$pnlDragControl$" runat="server" Width="100%" Height="20px"
+                    BorderStyle="Solid" BorderWidth="2px" BorderColor="black">
+                        <div class="dragMe">Drag Me</div>
+                </asp:Panel>
+                <asp:Panel ID="panelContent" runat="server" Width="100%" Height="250px"
+                    Style="overflow: scroll;" BackColor="#0B3D73" ForeColor="whitesmoke"
+                    BorderWidth="2px" BorderColor="black" BorderStyle="Solid" >
+                        <div>
+                            <p>This panel will reset its position on a postback or page refresh.</p>
+                            <p>JacobJacobJacobJacobJacobJacobJacobJacobJacobJacobJacobJacob
+                               JacobJacobJacobJacobJacobJacobJacobJacobJacobJacobJacobJacob
+                               JacobJacobJacobJacobJacobJacobJacobJacobJacobJacobJacobJacob
+                               JacobJacobJacobJacobJacobJacobJacobJacobJacobJacobJacobJacob
+                               JacobJacobJacobJacobJacobJacobJacobJacobJacobJacobJacobJacob
+                               JacobJacobJacobJacobJacobJacobJacobJacobJacobJacobJacobJacob
+                               JacobJacobJacobJacobJacobJacobJacobJacobJacobJacobJacobJacob 
+                            </p>
+                        </div>
+                </asp:Panel>        
+    </asp:Panel>
+
+    <ajaxToolkit:DragPanelExtender ID="DragPanelExtender1" runat="server" 
+            TargetControlID="$pnlDrag$" DragHandleID="$pnlDragControl$" 
+    />
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

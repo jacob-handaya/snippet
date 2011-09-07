@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>NoBot</Title>
+      <Author>Jacob Handaya</Author>
+      <Description>Add NoBot to Page</Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>NoBot</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>Panel1</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>Panel1</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>TextBox1</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>TextBox1</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>TextBox2</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>TextBox2</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>programmaticModalPopup</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>programmaticModalPopup</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>pnlComplain</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>pnlComplain</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>pnlChangeLayoutHead</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>pnlChangeLayoutHead</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>modalBackground</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>modalBackground</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>btnCancel</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>btnCancel</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="html" Kind="" Delimiter="$"><![CDATA[
+<!--
+ OnGenerateChallengeAndResponse - Optional EventHandler<NoBotEventArgs> providing a custom implementation of the challenge/response code
+ ResponseMinimumDelaySeconds - Optional minimum number of seconds before which a response (postback) is considered valid
+ CutoffWindowSeconds - Optional number of seconds specifying the length of the cutoff window that tracks previous postbacks from each IP address
+ CutoffMaximumInstances - Optional maximum number of postbacks to allow by a single IP addresses within the cutoff window
+
+-->
+
+    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"/>
+    <br />
+    <br />
+    <asp:Panel ID="$Panel1$" runat="server">
+       <p>Please fill out the form below and submit it:</p>
+       <p>
+            First Name: <asp:TextBox ID="$TextBox1$" runat="server" Text="Anonymous" /><br />
+            Last Name: <asp:TextBox ID="$TextBox2$" runat="server" Text="User" />
+       </p>
+       <asp:Button ID="Button1" runat="server" Text="Submit" onclick="Button1_Click" />
+    </asp:Panel>
+
+    <ajaxToolkit:NoBot ID="NoBot2" runat="server" />
+
+    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+
+    <asp:Panel ID="$pnlComplain$" runat="server">
+            <asp:Panel ID="$pnlChangeLayoutHead$" runat="server" Style="cursor: move; background-color: #DDDDDD;
+                border: solid 1px Gray; color: Black">
+                <div>
+                    <p>Bot Detected</p>
+                </div>
+            </asp:Panel>
+            <div>
+                <p style="text-align: center;">
+                    <asp:Label ID="lblMessage" runat="server" Text="Label"></asp:Label>
+                    <asp:Button ID="$btnCancel$" runat="server" Text="Cancel" />
+                </p>
+            </div>
+    </asp:Panel>
+
+    <style type="text/css">
+           
+            .$modalBackground$ {
+	            background-color:Gray;
+	            filter:alpha(opacity=70);
+	            opacity:0.7;
+            }
+
+            .modalPopup {
+	            background-color:#ffffdd;
+	            border-width:3px;
+	            border-style:solid;
+	            border-color:Gray;
+	            padding:3px;
+	            width:250px;
+            }
+    </style>
+    <asp:Button runat="server" ID="hiddenTargetControlForModalPopup" Style="display: none" />
+    <ajaxToolkit:ModalPopupExtender ID="programmaticModalPopup" runat="server" 
+             TargetControlID="hiddenTargetControlForModalPopup"
+             PopupControlID="$pnlComplain$"
+             PopupDragHandleControlID="$pnlChangeLayoutHead$" 
+             DropShadow="true"
+             BackgroundCssClass="$modalBackground$" 
+             CancelControlID="$btnCancel$" 
+    />
+
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

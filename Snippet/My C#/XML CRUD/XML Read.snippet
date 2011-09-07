@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>XMLRead</Title>
+      <Author>Jacob Handaya</Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>XMLRead</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports>
+        <Import>
+          <Namespace>System.Xml</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>Document</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>Document</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp" Kind="" Delimiter="$"><![CDATA[
+       public static System.Xml.XmlDocument $Document$
+        {
+            get
+            {
+                lock (_lock)
+                {
+                    if (_document == null)
+                    {
+                        // Read XML data from disk
+                        _document = new System.Xml.XmlDocument();
+                        _document.Load(HttpContext.Current.Server.MapPath("~/AJAXControlToolkit/CascadingDropDown/CarsService.xml"));
+                    }
+                }
+                return _document;
+            }
+        }
+
+
+	 
+	
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>ViewState.snippet</Title>
+      <Author>Jacob Handaya</Author>
+      <Description>Adds View State</Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords />
+      <Shortcut>ViewState.snippet</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>Author</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>Jacob Handaya</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>String</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>String</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>variableName</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>variableName</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp" Kind="" Delimiter="$"><![CDATA[/*
+Please keep in mind though, that while 
+    cookies and sessions can be accessed from all your pages on your website, 
+ViewState values are not carried between pages. 
+
+Here is a simple example of using the ViewState to carry values between postbacks
+*/
+//View state can be turned off at a page level by developers
+//If you dont store in View State, the value will only exist for a single postback. It's reset on every page lifecycle
+
+ 		public string $variableName$
+        {
+            get
+            {
+                $String$ s = ($String$)ViewState["$variableName$"];
+                return ((s == null) ? $String$.Empty : s);
+            }
+ 
+            set
+            {
+                ViewState["$variableName$"] = value;
+            }
+        }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

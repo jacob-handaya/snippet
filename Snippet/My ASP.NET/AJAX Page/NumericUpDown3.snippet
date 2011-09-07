@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>NumericUpDown3_WS</Title>
+      <Author>Jacob Handaya</Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>NumericUpDown3_WS</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>txtBox3</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>txtBox3</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>~/AJAXControlToolkit/AJAXControlToolkitWS.asmx</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>~/AJAXControlToolkit/AJAXControlToolkitWS.asmx</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="html" Kind="" Delimiter="$"><![CDATA[
+
+    <asp:TextBox ID="$txtBox3$" runat="server" Text="10"></asp:TextBox>
+    <ajaxToolkit:NumericUpDownExtender ID="NumericUpDownExtender3" runat="server" 
+        TargetControlID="$txtBox3$"
+        Tag="" 
+        Width="120"
+        RefValues=""
+        ServiceDownPath="$~/AJAXControlToolkit/AJAXControlToolkitWS.asmx$"
+        ServiceDownMethod="PreviousValue"  
+        ServiceUpPath="$~/AJAXControlToolkit/AJAXControlToolkitWS.asmx$" 
+        ServiceUpMethod="NextValue" 
+        TargetButtonDownID=""
+        TargetButtonUpID="" ]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

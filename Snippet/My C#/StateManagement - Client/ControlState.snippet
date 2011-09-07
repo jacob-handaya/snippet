@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>ControlState.Snippet</Title>
+      <Author>Jacob Handaya</Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>ControlState</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>Author</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>Jacob Handaya</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp" Kind="" Delimiter="$"><![CDATA[/*
+Control state survives even if the developer using the custom control disables view state.
+The advantage is pretty obvious;
+*/
+
+        private int _customerID;
+
+        public int CustomerID
+        {
+            get { return _customerID; }
+            set { _customerID = value; }
+        }
+
+
+        protected override object SaveControlState()
+        {
+            //Use an object array to store multiple values.
+            //This can be expanded to store business objects instead
+            //of just one value such as CustomerID.
+            object[] controlState = new object[2];
+            controlState[0] = base.SaveControlState();
+            controlState[1] = _customerID;
+            return controlState;
+
+        }
+
+        protected override void LoadControlState(object savedState)
+        {
+
+            object[] controlState = (object[])savedState;
+            base.LoadControlState(controlState[0]);
+            _customerID = (int)(controlState[1]);
+
+        }
+
+        protected override void OnInit(System.EventArgs e)
+        {
+            base.OnInit(e);
+            Page.RegisterRequiresControlState(this);
+        }
+
+
+
+
+
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

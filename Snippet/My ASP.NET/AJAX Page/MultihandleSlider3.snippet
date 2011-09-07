@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>MultihandleSlider3</Title>
+      <Author>Jacob Handaya</Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>MultihandleSlider3</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>txtMultiHandle3_1_BoundControl</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>txtMultiHandle3_1_BoundControl</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>txtMultiHandle3_2_BoundControl</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>txtMultiHandle3_2_BoundControl</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>txtMultiHandle3_3_BoundControl</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>txtMultiHandle3_3_BoundControl</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>txtSliderControl3</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>txtSliderControl3</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>multSliderExThree</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>multSliderExThree</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="html" Kind="" Delimiter="$"><![CDATA[<!--
+// it may return you an error on design mode
+// but it would be ok when you run the application
+-->
+
+                    <asp:TextBox ID="$txtMultiHandle3_1_BoundControl$" runat="server" Text="3" Style="display:none;" />
+                    <asp:TextBox ID="$txtMultiHandle3_2_BoundControl$" runat="server" Text="50" Style="display:none;" />
+                    <asp:TextBox ID="$txtMultiHandle3_3_BoundControl$" runat="server" Text="89" Style="display:none;" />
+                    <asp:TextBox ID="$txtSliderControl3$" runat="server" Style="display:none;" />
+                    <ajaxToolkit:MultiHandleSliderExtender ID="$multSliderExThree$" runat="server"
+                        BehaviorID="$multSliderExThree$"
+                        TargetControlID="$txtSliderControl3$"
+                        Minimum="0"
+                        Maximum="100"
+                        Length="450"
+                        EnableHandleAnimation="true"
+                        EnableKeyboard="false"
+                        EnableMouseWheel="false"
+                        ShowInnerRail="true"
+                        ShowHandleDragStyle="true"
+                        ShowHandleHoverStyle="true"
+                        TooltipText="Value is {0}"
+                      >
+                        <MultiHandleSliderTargets>
+                            <ajaxToolkit:MultiHandleSliderTarget ControlID="$txtMultiHandle3_1_BoundControl$" />
+                            <asp:MultiHandleSliderTarget ControlID="$txtMultiHandle3_2_BoundControl$" />
+                            <ajaxToolkit:MultiHandleSliderTarget ControlID="$txtMultiHandle3_3_BoundControl$" />
+                        </MultiHandleSliderTargets>            
+                    </ajaxToolkit:MultiHandleSliderExtender>
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

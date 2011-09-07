@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>View State, Session State</Title>
+      <Author></Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut></Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="VB" Kind="" Delimiter="$"><![CDATA[
+'ViewState is used primarily by Server controls to retain state only on pages that post data back to themselves.
+'The information is passed to the client and read back in a hidden variable. 
+'ViewState is an unnecessary overhead for pages that do not need it. 
+'As the ViewState grows larger, it affects the performance of garbage collection. 
+'You can optimize the way your application uses ViewState by following these tips:
+
+'ViewState is turned on in ASP.NET by default. You might not need ViewState because your page is output-only or because you explicitly reload data for each request. You do not need ViewState in the following situations:
+
+'1.Your page does not post back. 
+	'If the page does not post information back to itself, 
+	'if the page is only used for output, 
+	'and if the page does not rely on response processing, you do not need ViewState.
+
+'2.You do not handle server control events. 
+    'If your server controls do not handle events, 
+    'and if your server controls have no dynamic or data bound property values, 
+    'or they are set in code on every request, you do not need ViewState.
+
+'3.You repopulate controls with every page refresh. 
+    'If you ignore old data, 
+    'and if you repopulate the server control each time the page is refreshed,
+    'you do not need ViewState.
+
+<%@ Page EnableViewState="false" %> 
+
+
+
+
+'To disable session state for a page, 
+'set the EnableSessionState attribute in the @ Page directive to false.i.e.
+<%@ Page EnableSessionState="false" %> ]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

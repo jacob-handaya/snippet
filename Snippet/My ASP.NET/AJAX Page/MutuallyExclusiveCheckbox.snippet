@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>MutuallyExclusiveCheckbox</Title>
+      <Author>Jacob Handaya</Author>
+      <Description>Add MutuallyExclusiveCheckbox to the page</Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>MutuallyExclusiveCheckbox</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>chkBackDoor</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>chkBackDoor</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>chkWoodenDoor</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>chkWoodenDoor</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>chkFrontDoor</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>chkFrontDoor</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>BackFrontDoor</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>BackFrontDoor</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>DoorType</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>DoorType</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>chkGlassDoor</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>chkGlassDoor</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="html" Kind="" Delimiter="$"><![CDATA[
+
+        <table>
+            <tr>
+	            <td>
+	                <b>Option A</b><br />
+		            <asp:Checkbox runat="server" ID="$chkBackDoor$" 
+		                Text="Back Door" /><br />
+
+	                <ajaxToolkit:MutuallyExclusiveCheckboxExtender runat="server" ID="mecBackDoor" 
+	                    TargetControlID="$chkBackDoor$" 
+	                    Key="$BackFrontDoor$" />
+		            
+
+		            <asp:Checkbox runat="server" ID="$chkWoodenDoor$" 
+		                Text="Wooden Door" /><br />
+	                <ajaxToolkit:MutuallyExclusiveCheckboxExtender runat="server" ID="mecWoodenDoor" 
+	                    TargetControlID="$chkWoodenDoor$" 
+	                    Key="$DoorType$" />
+                </td>
+                <td>
+	                <b>Option B</b><br />
+		            <asp:Checkbox runat="server" ID="$chkFrontDoor$" 
+		                Text="Front Door" /><br />
+
+	                <ajaxToolkit:MutuallyExclusiveCheckboxExtender runat="server" ID="mecFrontDoor" 
+	                    TargetControlID="$chkFrontDoor$" 
+	                    Key="$BackFrontDoor$" />
+		            
+
+		            <asp:Checkbox runat="server" ID="$chkGlassDoor$" 
+		                Text="Glass Door" /><br />
+	                <ajaxToolkit:MutuallyExclusiveCheckboxExtender runat="server" ID="mecGlassDoor" 
+	                    TargetControlID="$chkGlassDoor$" 
+	                    Key="$DoorType$" />
+                </td>
+            </tr>
+        </table>]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

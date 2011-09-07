@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>ASPNET_Impersonate</Title>
+      <Author></Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>ASPNET_Impersonate</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="XML" Kind="" Delimiter="$"><![CDATA[
+
+<configuration>
+  <system.web>
+    <identity impersonate="true" 
+  			userName="contoso\Jane" 
+  			password="********" />
+  </system.web>
+</configuration>]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
