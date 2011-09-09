@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>ThreadNaming</Title>
+      <Author></Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut></Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="VB" Kind="" Delimiter="$"><![CDATA[
+
+ static void Main()
+  {
+    Thread.CurrentThread.Name = "main";
+    Thread worker = new Thread (Go);
+    worker.Name = "worker";
+    worker.Start();
+    Go();
+  }
+ 
+  static void Go()
+  {
+    Console.WriteLine ("Hello from " + Thread.CurrentThread.Name);
+  }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>prb_deadlock</Title>
+      <Author></Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut></Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="VB" Kind="" Delimiter="$"><![CDATA[/*
+  
+                                Locking firstLock
+                                Locked firstLock
+Locking secondLock
+Locked secondLock
+Locking firstLock
+                                Locking secondLock
+
+*/
+
+
+using System;
+using System.Threading;
+
+public class Test
+{
+    static readonly object firstLock = new object();
+    static readonly object secondLock = new object();
+    
+    static void Main()
+    {
+        new Thread(new ThreadStart(ThreadJob)).Start();
+        
+        // Wait until we're fairly sure the other thread
+        // has grabbed firstLock
+        Thread.Sleep(500);
+        
+        Console.WriteLine ("Locking secondLock");
+        lock (secondLock)
+        {
+            Console.WriteLine ("Locked secondLock");
+            Console.WriteLine ("Locking firstLock");
+            lock (firstLock)
+            {
+                Console.WriteLine ("Locked firstLock");
+            }
+            Console.WriteLine ("Released firstLock");
+        }
+        Console.WriteLine("Released secondLock");
+    }
+    
+    static void ThreadJob()
+    {
+        Console.WriteLine ("\t\t\t\tLocking firstLock");
+        lock (firstLock)
+        {
+            Console.WriteLine("\t\t\t\tLocked firstLock");
+            // Wait until we're fairly sure the first thread
+            // has grabbed secondLock
+            Thread.Sleep(1000);
+            Console.WriteLine("\t\t\t\tLocking secondLock");
+            lock (secondLock)
+            {
+                Console.WriteLine("\t\t\t\tLocked secondLock");
+            }
+            Console.WriteLine ("\t\t\t\tReleased secondLock");
+        }
+        Console.WriteLine("\t\t\t\tReleased firstLock");
+    }
+}]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

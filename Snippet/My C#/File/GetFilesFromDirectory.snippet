@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>GetAllFileNameFromDirectory</Title>
+      <Author>JH</Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>GetAllFileNameFromDirectory</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports>
+        <Import>
+          <Namespace>System.IO</Namespace>
+        </Import>
+      </Imports>
+      <Declarations />
+      <Code Language="csharp" Kind="" Delimiter="$"><![CDATA[
+//Method Directory.GetFiles returns string array with files names (full paths).
+//Include Subdirectory
+//
+
+string[] filePaths = Directory.GetFiles(@"c:\MyDir\","*.*", SearchOption.AllDirectories);
+
+// returns:
+// "c:\MyDir\my-car.BMP"
+// "c:\MyDir\my-house.jpg"]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>GetCultureNames</Title>
+      <Author></Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut></Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="VB" Kind="" Delimiter="$"><![CDATA[
+
+// get culture names
+List<string> list = new List<string>();
+foreach (CultureInfo ci in CultureInfo.GetCultures(CultureTypes.AllCultures))
+{
+  string specName = "(none)";
+  try { specName = CultureInfo.CreateSpecificCulture(ci.Name).Name; } catch { }
+  list.Add(String.Format("{0,-12}{1,-12}{2}", ci.Name, specName, ci.EnglishName));
+}
+
+list.Sort();  // sort by name
+
+// write to console
+Console.WriteLine("CULTURE   SPEC.CULTURE  ENGLISH NAME");
+Console.WriteLine("--------------------------------------------------------------");
+foreach (string str in list)
+{
+  Console.WriteLine(str);
+}]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

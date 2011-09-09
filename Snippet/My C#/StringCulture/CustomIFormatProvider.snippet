@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CustomIFormatProvider</Title>
+      <Author></Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut></Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>myDoubleFormatter</ID>
+          <Type />
+          <ToolTip />
+          <Default>myDoubleFormatter</Default>
+          <Function />
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="" Delimiter="$"><![CDATA[
+
+public class $myDoubleFormatter$: IFormatProvider, ICustomFormatter
+{
+  // always use dot separator for doubles
+  private CultureInfo enUsCulture = CultureInfo.GetCultureInfo("en-US");
+
+  public string Format(string format, object arg, IFormatProvider formatProvider)
+  {
+    // format doubles to 3 decimal places
+    return string.Format(enUsCulture, "{0:0.000}", arg);
+  }
+
+  public object GetFormat(Type formatType)
+  {
+    return (formatType == typeof(ICustomFormatter)) ? this : null;
+  }
+}
+
+
+
+double width = 15.77555;
+double height = 12.8497979;
+Console.WriteLine(
+  string.Format(new $myDoubleFormatter$(), "w={0} h={1}", width, height));
+
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

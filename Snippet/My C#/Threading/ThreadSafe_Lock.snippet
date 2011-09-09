@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>ThreadSafe_Lock</Title>
+      <Author></Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut></Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="VB" Kind="" Delimiter="$"><![CDATA[//When two threads simultaneously contend a lock (in this case, locker), 
+
+//one thread waits, or blocks, until the lock becomes available. In this case, 
+
+//it ensures only one thread can enter the critical section of code at a time, 
+//and “Done” will be print once
+
+
+class ThreadSafe 
+{
+  static bool done;
+
+  static readonly object locker = new object();
+ 
+  static void Main()
+  {
+    new Thread (Go).Start();
+    Go();
+  }
+ 
+  static void Go()
+  {
+    lock (locker)
+    {
+      if (!done) 
+		{ 
+			Console.WriteLine ("Done"); done = true; 
+		}
+    }
+  }
+}
+
+
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

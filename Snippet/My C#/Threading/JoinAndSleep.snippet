@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>JoinAndSleep</Title>
+      <Author></Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut></Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="VB" Kind="" Delimiter="$"><![CDATA[//This prints “y” 1,000 times, followed by “Thread t has ended!”
+
+  Thread t = new Thread (Go);
+  t.Start();
+  t.Join();
+
+  Console.WriteLine ("Thread t has ended!");
+
+  static void Go()
+  {
+
+	
+  }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
