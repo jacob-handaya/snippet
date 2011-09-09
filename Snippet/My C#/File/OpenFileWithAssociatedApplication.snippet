@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>OpenFileWithAssociatedApplication</Title>
+      <Author>JH</Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>OpenFileWithAssociatedApplication</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="csharp" Kind="" Delimiter="$"><![CDATA[
+// open text file in notepad (or another default text editor)
+System.Diagnostics.Process.Start(@"c:\textfile.txt");
+
+
+// open image in default viewer
+System.Diagnostics.Process.Start(@"c:\image.jpg");
+
+
+// open url in default web browser
+System.Diagnostics.Process.Start("http://www.csharp-examples.net");
+
+
+// open PDF file
+System.Diagnostics.Process.Start(@"c:\document.pdf");]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

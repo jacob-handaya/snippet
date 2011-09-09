@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>LoadTextToString</Title>
+      <Author>Jacob Handaya</Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>LoadTextToString</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports>
+        <Import>
+          <Namespace>System.IO</Namespace>
+        </Import>
+      </Imports>
+      <Declarations />
+      <Code Language="csharp" Kind="" Delimiter="$"><![CDATA[
+
+StreamReader streamReader = new StreamReader(filePath);
+string text = streamReader.ReadToEnd();
+streamReader.Close();]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

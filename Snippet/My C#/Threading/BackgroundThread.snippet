@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>BackgroundThread</Title>
+      <Author></Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut></Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="VB" Kind="" Delimiter="$"><![CDATA[/*
+By default, threads you create explicitly are foreground threads.
+Foreground threads keep the application alive for as long as any one of them is running
+, whereas background threads do not. 
+Once all foreground threads finish, the application ends, 
+and any background threads still running abruptly terminate
+*/
+
+	Thread worker = new Thread (Go);
+	worker.IsBackground = true;
+    worker.Start();
+
+
+
+  static void Go()
+  {
+    // your process here
+  }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

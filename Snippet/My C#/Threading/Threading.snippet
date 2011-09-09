@@ -1,34 +1,72 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<CodeSnippet Format="1.0.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
-  <Header>
-    <SnippetTypes>
-      <SnippetType>Expansion</SnippetType>
-    </SnippetTypes>
-    <Title>ThreadStart</Title>
-    <Author>Jacob Handaya</Author>
-    <Description>Adds a header to a code file.</Description>
-    <HelpUrl>
-    </HelpUrl>
-    <Shortcut>ThreadingSingle</Shortcut>
-  </Header>
-  <Snippet>
-    <Imports>
-      <Import>
-        <Namespace>System.Threading</Namespace>
-      </Import>
-    </Imports>
-    <Declarations>
-      <Literal Editable="true">
-        <ID>Author</ID>
-        <ToolTip>
-        </ToolTip>
-        <Default>Jacob Handaya</Default>
-        <Function>
-        </Function>
-      </Literal>
-    </Declarations>
-    <Code Language="csharp"><![CDATA[
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>ThreadStart</Title>
+      <Author>Jacob Handaya</Author>
+      <Description>Adds a header to a code file.</Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords />
+      <Shortcut>ThreadingSingle</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports>
+        <Import>
+          <Namespace>System.Threading</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>Author</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>Jacob Handaya</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>tt</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>tt</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>Print</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>Print</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>messageObj</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>messageObj</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>message</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>message</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp" Kind="" Delimiter="$"><![CDATA[	 
 
-]]></Code>
-  </Snippet>
-</CodeSnippet>
+	 Thread t = new Thread ($Print$);
+  	 t.Start ("Hello from t!");
+
+
+static void $Print$ (object $messageObj$)
+{
+  string $message$= (string) $messageObj$;   // We need to cast here
+  Console.WriteLine ($message$);
+}]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

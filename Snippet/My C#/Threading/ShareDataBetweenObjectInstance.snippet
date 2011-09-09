@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>ShareDataBetweenObjectInstance</Title>
+      <Author>JH</Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>ShareDataBetweenObjectInstance</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="csharp" Kind="" Delimiter="$"><![CDATA[//Threads share data if they have a common reference to the same object instance.
+
+class ThreadTest
+{
+  bool done;
+ 
+  static void Main()
+  {
+    ThreadTest tt = new ThreadTest();   // Create a common instance
+    new Thread (tt.Go).Start();
+    tt.Go();
+  }
+ 
+  // Note that Go is now an instance method
+  void Go() 
+  {
+     if (!done) { done = true; Console.WriteLine ("Done"); }
+  }
+}
+
+
+//Because both threads call Go() on the same ThreadTest instance, 
+
+//they share the done field. This results in "Done" printed once only]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

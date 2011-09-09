@@ -2,15 +2,13 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
   <CodeSnippet Format="1.0.0">
     <Header>
-      <Title>FileStreamOpenFile</Title>
-      <Author>Jacob Handaya</Author>
-      <Description>Adds a FileStream</Description>
+      <Title>DeleteAllFiles</Title>
+      <Author>JH</Author>
+      <Description></Description>
       <HelpUrl></HelpUrl>
-      <SnippetTypes>
-        <SnippetType>Expansion</SnippetType>
-      </SnippetTypes>
+      <SnippetTypes />
       <Keywords />
-      <Shortcut>FileStreamOpenFile</Shortcut>
+      <Shortcut></Shortcut>
     </Header>
     <Snippet>
       <References />
@@ -21,23 +19,34 @@
       </Imports>
       <Declarations>
         <Literal Editable="true">
-          <ID>Author</ID>
+          <ID>filePath</ID>
           <Type></Type>
           <ToolTip></ToolTip>
-          <Default>Jacob Handaya</Default>
+          <Default>filePath</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>path</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>path</Default>
           <Function></Function>
         </Literal>
       </Declarations>
       <Code Language="csharp" Kind="" Delimiter="$"><![CDATA[
-FileStream fileStream = new FileStream(@"c:\file.txt", FileMode.Open);
-try
+
+string[] filePaths = Directory.GetFiles(@"c:\MyDir\");
+
+foreach (string $filePath$ in filePaths)
 {
-  // read from file or write to file
+  File.Delete($filePath$);
 }
-finally
-{
-  fileStream.Close();
-}]]></Code>
+
+
+// or
+
+
+Array.ForEach(Directory.GetFiles(@"c:\MyDir\"),delegate(string $path$) { File.Delete($path$); });]]></Code>
     </Snippet>
   </CodeSnippet>
 </CodeSnippets>

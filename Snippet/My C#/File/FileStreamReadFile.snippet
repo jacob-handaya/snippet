@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>FileStreamReadFile</Title>
+      <Author>Jacob Handaya</Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>FileStreamReadFile</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports>
+        <Import>
+          <Namespace>System.IO</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>count</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>count</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>fileStream</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>fileStream</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>sum</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>sum</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp" Kind="" Delimiter="$"><![CDATA[
+
+public static byte[] ReadFile(string filePath)
+{
+  byte[] buffer;
+  FileStream $fileStream$ = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+  try
+  {
+    int length = (int)$fileStream$.Length;  // get file length
+    buffer = new byte[length];            // create buffer
+    int $count$;                            // actual number of bytes read
+    int $sum$ = 0;                          // total number of bytes read
+
+    // read until Read method returns 0 (end of the stream has been reached)
+    while (($count$ = $fileStream$.Read(buffer, $sum$, length - $sum$)) > 0)
+	{
+      $sum$ += $count$;  // $sum$ is a buffer offset for next reading
+	}
+  }
+  finally
+  {
+    $fileStream$.Close();
+  }
+  return buffer;
+}]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
