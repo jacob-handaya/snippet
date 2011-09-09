@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>ReportViewer1Load</Title>
+      <Author>Jacob Handaya</Author>
+      <Description>Load the Report , Supply parameter and choose the report file</Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>ReportViewer1Load</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>ReportViewer1</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>ReportViewer1</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>parameters</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>parameters</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>txtParam1</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>txtParam1</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>txtParam2</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>txtParam2</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp" Kind="" Delimiter="$"><![CDATA[
+
+            ReportParameter[] $parameters$;
+
+            switch (ddlReportModel.SelectedValue)
+            {
+                case  "Employee" :
+                    $ReportViewer1$.LocalReport.ReportPath = "Employee.rdlc";
+                    $parameters$ = new ReportParameter[2];
+                    $parameters$[0] = new ReportParameter("dataStart", $txtParam1$.Text);
+                    $parameters$[1] = new ReportParameter("dataEnd", $txtParam2$.Text);
+                    $ReportViewer1$.LocalReport.SetParameters($parameters$);
+                    break;
+                case "Customers":
+                    $ReportViewer1$.LocalReport.ReportPath = "Customer.rdlc";
+                    $parameters$ = new ReportParameter[2];
+                    $parameters$[0] = new ReportParameter("dataStart", $txtParam1$.Text);
+                    $parameters$[1] = new ReportParameter("dataEnd", $txtParam2$.Text);
+                    $ReportViewer1$.LocalReport.SetParameters($parameters$);
+                    break;
+
+            }
+            $ReportViewer1$.LocalReport.Refresh();]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
