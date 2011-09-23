@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>addTableRow</Title>
+      <Author></Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>addTableRow</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="jscript" Kind="" Delimiter="$"><![CDATA[
+		function addNoRow(tableID)
+		{
+		   var table = document.getElementById(tableID);
+ 
+           var rowCount = table.rows.length;
+           var row = table.insertRow(rowCount);
+		   
+			var attribute1 = document.createAttribute("BGCOLOR")
+			attribute1.nodeValue = "#FEECC4";
+			var attribute12 = document.createAttribute("ALIGN")
+			attribute12.nodeValue = "LEFT";
+			var attribute13 = document.createAttribute("COLSPAN")
+			attribute13.nodeValue = "4";
+			
+			var cell1 = row.insertCell(0);
+            cell1.innerHTML = "<FONT COLOR=\"#000000\" SIZE=\"1\" FACE=\"helvetica, arial\">" + "&nbsp;No Courses for selected Learning Framework, Learning Area, Sub Area&nbsp;" + "</FONT>";
+			cell1.setAttributeNode(attribute1);
+			cell1.setAttributeNode(attribute12);
+			cell1.setAttributeNode(attribute13);
+		}
+		
+		function addDataRow(tableID, courseID, courseName, duration, organizing_agency)
+		{
+            var table = document.getElementById(tableID);
+ 
+            var rowCount = table.rows.length;
+            var row = table.insertRow(rowCount);
+
+			
+			var attribute1 = document.createAttribute("BGCOLOR")
+			attribute1.nodeValue = "#FEECC4";
+			var attribute12 = document.createAttribute("ALIGN")
+			attribute12.nodeValue = "LEFT";
+			
+			var cell1 = row.insertCell(0);
+            cell1.innerHTML = "<FONT COLOR=\"#000000\" SIZE=\"1\" FACE=\"helvetica, arial\">" + "&nbsp;" + courseID + "&nbsp;" + "</FONT>";
+			cell1.setAttributeNode(attribute1);
+			cell1.setAttributeNode(attribute12);
+ 
+			var attribute2 = document.createAttribute("BGCOLOR")
+			attribute2.nodeValue = "#FEECC4";
+			var attribute22 = document.createAttribute("ALIGN")
+			attribute22.nodeValue = "CENTER";
+			var cell2 = row.insertCell(1);
+            cell2.innerHTML = "<FONT COLOR=\"#000000\" SIZE=\"1\" FACE=\"helvetica, arial\">&nbsp;<A href=\"javascript:clickCourse('" + courseID + "');\">" + courseName + "</A>&nbsp;</FONT>";
+			cell2.setAttributeNode(attribute2);
+			cell2.setAttributeNode(attribute22);
+ 
+			var attribute3 = document.createAttribute("BGCOLOR")
+			attribute3.nodeValue = "#FEECC4";
+			var attribute32 = document.createAttribute("ALIGN")
+			attribute32.nodeValue = "CENTER";
+			var cell3 = row.insertCell(2);
+			if((duration != null)||(duration!=""))
+			{
+				cell3.innerHTML = "<FONT COLOR=\"#000000\" SIZE=\"1\" FACE=\"helvetica, arial\">" + "&nbsp;" + duration  + "&nbsp;" + "</FONT>";
+			}
+			else
+			{
+				cell3.innerHTML = "<FONT COLOR=\"#000000\" SIZE=\"1\" FACE=\"helvetica, arial\">" + "&nbsp;" + "</FONT>";
+			}
+			cell3.setAttributeNode(attribute3);
+			cell3.setAttributeNode(attribute32);
+
+			var attribute4 = document.createAttribute("BGCOLOR")
+			attribute4.nodeValue = "#FEECC4";
+			var attribute42 = document.createAttribute("ALIGN")
+			attribute42.nodeValue = "CENTER";
+            var cell4 = row.insertCell(3);
+			
+			if(organizing_agency != null)
+			{
+				cell4.innerHTML = "<FONT COLOR=\"#000000\" SIZE=\"1\" FACE=\"helvetica, arial\">" + "&nbsp;" + organizing_agency + "&nbsp;" + "</FONT>" ;
+			}
+			else
+			{
+				cell4.innerHTML = "<FONT COLOR=\"#000000\" SIZE=\"1\" FACE=\"helvetica, arial\">" + "&nbsp;" + "</FONT>";
+			}
+			cell4.setAttributeNode(attribute4);
+			cell4.setAttributeNode(attribute42);
+		}]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
