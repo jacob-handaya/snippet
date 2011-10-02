@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>RepresentingUnknown</Title>
+      <Author></Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut></Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="csharp" Kind="" Delimiter="$"><![CDATA[using System.Linq;
+/*
+Nullable types make the
+"extra work" option simple
+and syntactic sugar improves
+matters even further.
+*/
+
+//Nullable<T> 
+//list of products contains not just products on sale right now but ones that aren’t available
+//yet. 
+//In some cases, we may not know the price.
+
+decimal? price;
+public decimal? Price
+{
+    get { return price; }
+    private set { price = value; }
+}
+
+//The constructor parameter changes to decimal? as well, and then we can pass in null
+//as the argument, 
+//or say Price = null; within the class. 
+//That’s a lot more expressive
+//than any of the other solutions. 
+
+
+
+List<Product> products = Product.GetSampleProducts();
+foreach (Product product in products.Where(p => p.Price==null))
+{
+     Console.WriteLine(product.Name);
+}
+
+
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

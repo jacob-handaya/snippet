@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Generate Proxy Class From WSDL</Title>
+      <Author></Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut></Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="csharp" Kind="" Delimiter="$"><![CDATA[
+Web Services Description Language Tool (Wsdl.exe)
+=================================================
+C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\Bin
+Go to Visual Studio Command Prompt
+Start | Program Files | Visual Studio 2010 | Visual Studio Tools | Command Prompt
+
+wsdl [options] {URL | path}
+
+The URL to a WSDL contract file (.wsdl), 
+		XSD schema file (.xsd), 
+		or discovery document (.disco). 
+		Note that you cannot specify a URL to a .
+		discomap discovery document.
+
+The path to a local WSDL contract file (.wsdl), 
+		XSD schema file (.xsd), 
+		or discovery document (.disco or .discomap).
+
+Example 1 NO PROTECTED :
+========================================================
+cd D:\SampleWSDL
+
+WSDL /l:CS /protocol:SOAP D:\SampleWSDL\WebService1.wsdl
+
+========================================================
+
+Example 2 PROTECTED SERVER AUTHENTICATION
+	      WITH USERNAME AND PASSWORD 
+========================================================
+cd D:\SampleWSDL
+
+WSDL /l:CS /protocol:SOAP /u:Jacob64 /p:ipman D:\SampleWSDL\WebService1.wsdl
+
+========================================================
+
+compile as library
+
+csc /t:library /r:System.Web.Services.dll /r:System.Xml.dll WebService1.cs
+
+
+
+
+
+
+/language: 
+	specifies the language to use for the generated proxy/stub class. 
+	Choose from 'CS', 'VB', 'JS', 'VJS'. The default is 'CS' 
+Short form is '/l:'.]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

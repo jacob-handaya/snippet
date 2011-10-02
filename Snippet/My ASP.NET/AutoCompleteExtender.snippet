@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>AutoCompleteExtender</Title>
+      <Author>Jacob Handaya</Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>AutoCompleteExtender</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>txtAutoComplete</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>txtAutoComplete</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>AutoExtenderList</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>AutoExtenderList</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>AutoExtender</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>AutoExtender</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>AutoExtenderHighlight</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>AutoExtenderHighlight</Default>
+          <Function></Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>divwidth</ID>
+          <Type></Type>
+          <ToolTip></ToolTip>
+          <Default>divwidth</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="html" Kind="" Delimiter="$"><![CDATA[
+    <style>
+            .$AutoExtender$
+            {
+                font-family: Verdana, Helvetica, sans-serif;
+                font-size: .8em;
+                font-weight: normal;
+                border: solid 1px #006699;
+                line-height: 20px;
+                padding: 10px;
+                background-color: White;
+                margin-left:10px;
+            }
+            .$AutoExtenderList$
+            {
+                border-bottom: dotted 1px #006699;
+                cursor: pointer;
+                color: Maroon;
+            }
+            .$AutoExtenderHighlight$
+            {
+                color: White;
+                background-color: #006699;
+                cursor: pointer;
+            }
+            #$divwidth$
+            {
+              width: 150px !important;    
+            }
+            #$divwidth$ div
+           {
+            width: 150px !important;   
+           }
+        #$divwidth$
+        {
+          width: 150px !important;    
+        }
+        #$divwidth$ div
+       {
+        width: 150px !important;   
+       }           
+     </style>
+
+    <ajaxToolkit:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" />
+    
+    <!--
+        MinimumPrefixLength - Minimum number of characters that must be entered before getting suggestions from the web service.
+        CompletionInterval - Time in milliseconds when the timer will kick in to get suggestions using the web service.
+        EnableCaching - Whether client side caching is enabled.
+        CompletionSetCount - Number of suggestions to be retrieved from the web service.
+        CompletionListCssClass - Css Class that will be used to style the completion list flyout.
+        CompletionListItemCssClass - Css Class that will be used to style an item in the AutoComplete list flyout.
+        CompletionListHighlightedItemCssClassa - Css Class that will be used to style a highlighted item in the AutoComplete list flyout.
+        FirstRowSelected - Determines if the first option in the AutoComplete list will be selected by default
+
+        IMPORTANT !!
+        If your function in Web Service supply the parameter ContextKey
+        Please Provide ContextKey Value, if you dont know then use ContextKey="";
+    -->
+
+<asp:TextBox ID="$txtAutoComplete$" runat="server" Width="252px">
+</asp:TextBox>
+<div id="$divwidth$"></div>
+<ajaxToolkit:AutoCompleteExtender runat="server" 
+             ID="AutoComplete1"
+             BehaviorID="autoComplete"
+             TargetControlID="$txtAutoComplete$"
+             ServicePath="~/AJAXControlToolkit/AJAXControlToolkitWS.asmx" 
+             ServiceMethod="GetCompletionFromDB"
+             MinimumPrefixLength="1" 
+             CompletionInterval="5"
+             ContextKey ="ContactName" 
+             UseContextKey="true"
+             EnableCaching="true"
+             CompletionSetCount="12"
+             ShowOnlyCurrentWordInCompletionListItem="true"
+             CompletionListCssClass="$AutoExtender$"
+             CompletionListItemCssClass="$AutoExtenderList$"
+             CompletionListHighlightedItemCssClass="$AutoExtenderHighlight$"
+             CompletionListElementID="$divwidth$">
+
+</ajaxToolkit:AutoCompleteExtender>
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

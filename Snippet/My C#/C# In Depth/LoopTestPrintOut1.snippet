@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>LoopTestPrintOut</Title>
+      <Author></Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut></Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="csharp" Kind="" Delimiter="$"><![CDATA[//C#-1
+
+ArrayList products = Product.GetSampleProducts();
+foreach (Product product in products)
+{
+    if (product.Price > 10m)
+    {
+        Console.WriteLine(product);
+    }
+}
+
+//or
+//C#-2
+List<Product> products = Product.GetSampleProducts();
+products.FindAll (delegate(Product p) { return p.Price > 10;})
+        .ForEach (delegate(Product p) { Console.WriteLine(p); });
+
+
+//Or
+//C#-3
+// using lambda expression
+
+List<Product> products = Product.GetSampleProducts();
+foreach (Product product in products.Where(p => p.Price > 10))
+{
+     Console.WriteLine(product);
+}]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

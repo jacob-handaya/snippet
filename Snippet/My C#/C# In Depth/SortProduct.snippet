@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>SortProduct</Title>
+      <Author></Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut></Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="csharp" Kind="" Delimiter="$"><![CDATA[using System.Collections.Generic;
+using System.Linq;
+
+//Strongly typed comparator
+//Delegate comparisons
+//Anonymous methods
+
+
+List<Product> products = Product.GetSampleProducts();
+products.Sort(new ProductNameComparer());
+foreach (Product product in products)
+{
+    Console.WriteLine(product);
+}
+
+//Or using lambda expression
+//Lambda expressions
+//Extension methods
+//Option of leaving list unsorted
+
+List<Product> products = Product.GetSampleProducts();
+foreach (Product product in products.OrderBy(p => p.Name))
+{
+    Console.WriteLine (product);
+}
+
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

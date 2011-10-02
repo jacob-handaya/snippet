@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>HTTP Proxy in code for a WCF client</Title>
+      <Author></Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut></Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="csharp" Kind="" Delimiter="$"><![CDATA[
+
+ // instantiate a proxy for the service
+    var svc= new ServiceClient();
+    // get the HTTP binding
+    var b = svc.Endpoint.Binding as System.ServiceModel.BasicHttpBinding;
+    b.ProxyAddress = new Uri("http://127.0.0.1:8888");
+    b.BypassProxyOnLocal = false;
+    b.UseDefaultWebProxy = false;
+
+	var e = svc.Endpoint;
+    e.Address = new System.ServiceModel.EndpointAddress("http://remoteserver:5555/WcfXmlElement");
+
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

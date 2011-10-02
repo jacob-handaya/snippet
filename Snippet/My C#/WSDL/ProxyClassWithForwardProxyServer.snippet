@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>ProxyClassWithForwardProxyServer</Title>
+      <Author></Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut></Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="csharp" Kind="" Delimiter="$"><![CDATA[
+
+// if your webservice are secure by windows Credential
+// on the contructor
+
+    public WebService1() 
+	{
+        this.Url = "http://localhost/webservice/WebService1.asmx";
+        
+		// for the credential
+
+        System.Net.NetworkCredential NetCredential = new System.Net.NetworkCredential();
+        NetCredential.UserName = "";
+        NetCredential.Password = "";
+        NetCredential.Domain = "";
+
+        this.Credentials = NetCredential;
+
+		// for the proxy server (forwarding Server)
+
+        System.Net.WebProxy myForwardProxyServer = new System.Net.WebProxy();
+        myForwardProxyServer.Address = new Uri("http://127.0.0.1:8888");
+
+
+        //proxy server credential
+        System.Net.NetworkCredential NetProxyServerCredential = new System.Net.NetworkCredential();
+        NetProxyServerCredential.UserName = "";
+        NetProxyServerCredential.Password = "";
+        NetProxyServerCredential.Domain = "";
+        myForwardProxyServer.Credentials = NetProxyServerCredential;
+
+        //by pass proxy server on local
+        myForwardProxyServer.BypassProxyOnLocal = true;
+
+        this.Proxy = myForwardProxyServer;        
+    }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

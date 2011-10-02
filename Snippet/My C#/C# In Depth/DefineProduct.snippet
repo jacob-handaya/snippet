@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>DefineProduct</Title>
+      <Author></Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut></Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="csharp" Kind="" Delimiter="$"><![CDATA[//Automatically implemented
+//properties
+//Enhanced collection and
+//object initialization
+
+using System.Collections.Generic;
+class Product
+{
+    public string Name { get; private set; }
+    public decimal Price { get; private set; }
+    public Product(string name, decimal price)
+    {
+        Name = name;
+        Price = price;
+    }
+    Product()
+    {
+    }
+    public static List<Product> GetSampleProducts()
+    {
+        return new List<Product>
+        {
+            new Product { Name="Company", Price = 9.99m },
+            new Product { Name="Assassins", Price=14.99m },
+            new Product { Name="Frogs", Price=13.99m },
+            new Product { Name="Sweeney Todd", Price=10.99m}
+        };
+    }
+    public override string ToString()
+    {
+        return string.Format("{0}: {1}",     
+	}
+}]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

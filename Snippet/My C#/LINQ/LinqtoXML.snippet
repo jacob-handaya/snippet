@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>LinqtoXML</Title>
+      <Author></Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut></Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="csharp" Kind="" Delimiter="$"><![CDATA[
+
+XDocument doc = XDocument.Load("data.xml");
+var filtered = from p in doc.Descendants("Product")
+               join s in doc.Descendants("Supplier")
+               on (int)p.Attribute("SupplierID")
+                   equals (int)s.Attribute("SupplierID")
+               where (decimal)p.Attribute("Price") > 10
+               orderby (string)s.Attribute("Name"),
+                       (string)p.Attribute("Name")
+               select new
+               {
+                   SupplierName = (string)s.Attribute("Name"),
+                   ProductName = (string)p.Attribute("Name")
+               };
+foreach (var v in filtered)
+{
+    Console.WriteLine("Supplier={0}; Product={1}",
+                      v.SupplierName, v.ProductName);
+}]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
