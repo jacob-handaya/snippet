@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>getJSONDataFromWebService</Title>
+      <Author></Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>getJSONDataFromWebService</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="jscript" Kind="" Delimiter="$"><![CDATA[
+<script type="text/javascript">
+	$("#ddlFramework").change(function() 
+	{
+		clearAllRow("dataTable");	
+		
+		$("#ddlArea >option").remove();
+		$("#ddlArea").append($("<option></option>").val("").html("<-- Please Select One -->"));		
+		$("#ddlArea").attr("disabled", "disabled");	
+		
+		$("#ddlSubArea >option").remove();
+		$("#ddlSubArea").append($("<option></option>").val("").html("<-- Please Select One -->"));						
+		$("#ddlSubArea").attr("disabled", "disabled");			
+		
+		var courseCode = $("#hdfCourseCode").val(); 
+		var frameworkId = $("#ddlFramework").val();
+		if (frameworkId != "") {
+			$.ajax({
+				type: "POST",
+				url: "/aspnet/WebService.asmx/GetAreaListByCourseCode",
+				//async: false,
+				//cache: false,
+				data: '{courseCode:"' + courseCode + '",frameworkId:"' + frameworkId + '"}',
+				contentType: "application/json; charset=utf-8",
+				dataType: "json",
+				success: OnSuccess,
+				error: OnError
+			});
+		}							
+		
+		//Success case: bind Area DDL with Dataset returned from webserive    
+		function OnSuccess(data, status) {
+			var i = 0;			
+			$("#ddlArea").removeAttr("disabled");			
+			$.each(data.d, function(val, text) {
+				$("#ddlArea").append($("<option></option>").val(data.d[i].Id).html(data.d[i].Name));
+				i++;
+			});
+		}			
+	    
+		//Error case: Give alert message
+		function OnError(request, status, error) {
+			alert(request.statusText);
+		}
+		
+		//save framework text
+		if (frameworkId != "") {
+			$("#hdfFrameworkText").val($("#ddlFramework option:selected").text());
+		}
+	});
+</script>]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>deleteTableRows</Title>
+      <Author></Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>deleteTableRows</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="jscript" Kind="" Delimiter="$"><![CDATA[
+
+		function clearAllRow(tableID) 
+		{
+			try {
+			var table = document.getElementById(tableID);
+			var rowCount = table.rows.length;
+
+			for(var i=1; i<rowCount; i++) {
+				var row = table.rows[i];
+				table.deleteRow(i);
+				rowCount--;
+				i--;
+
+			}
+			}
+			catch(e) 
+			{
+				alert(e);
+			}
+		}
+		]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
