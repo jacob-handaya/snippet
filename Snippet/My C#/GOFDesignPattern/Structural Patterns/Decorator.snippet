@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Decorator</Title>
+      <Author></Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>Decorator</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="csharp" Kind="" Delimiter="$"><![CDATA[
+// Decorator pattern -- Structural example
+
+using System;
+ 
+namespace DoFactory.GangOfFour.Decorator.Structural
+{
+  /// <summary>
+  /// MainApp startup class for Structural
+  /// Decorator Design Pattern.
+  /// </summary>
+  class MainApp
+  {
+    /// <summary>
+    /// Entry point into console application.
+    /// </summary>
+    static void Main()
+    {
+      // Create ConcreteComponent and two Decorators
+      ConcreteComponent c = new ConcreteComponent();
+      ConcreteDecoratorA d1 = new ConcreteDecoratorA();
+      ConcreteDecoratorB d2 = new ConcreteDecoratorB();
+ 
+      // Link decorators
+      d1.SetComponent(c);
+      d2.SetComponent(d1);
+ 
+      d2.Operation();
+ 
+      // Wait for user
+      Console.ReadKey();
+    }
+  }
+ 
+  /// <summary>
+  /// The 'Component' abstract class
+  /// </summary>
+  abstract class Component
+  {
+    public abstract void Operation();
+  }
+ 
+  /// <summary>
+  /// The 'ConcreteComponent' class
+  /// </summary>
+  class ConcreteComponent : Component
+  {
+    public override void Operation()
+    {
+      Console.WriteLine("ConcreteComponent.Operation()");
+    }
+  }
+ 
+  /// <summary>
+  /// The 'Decorator' abstract class
+  /// </summary>
+  abstract class Decorator : Component
+  {
+    protected Component component;
+ 
+    public void SetComponent(Component component)
+    {
+      this.component = component;
+    }
+ 
+    public override void Operation()
+    {
+      if (component != null)
+      {
+        component.Operation();
+      }
+    }
+  }
+ 
+  /// <summary>
+  /// The 'ConcreteDecoratorA' class
+  /// </summary>
+  class ConcreteDecoratorA : Decorator
+  {
+    public override void Operation()
+    {
+      base.Operation();
+      Console.WriteLine("ConcreteDecoratorA.Operation()");
+    }
+  }
+ 
+  /// <summary>
+  /// The 'ConcreteDecoratorB' class
+  /// </summary>
+  class ConcreteDecoratorB : Decorator
+  {
+    public override void Operation()
+    {
+      base.Operation();
+      AddedBehavior();
+      Console.WriteLine("ConcreteDecoratorB.Operation()");
+    }
+ 
+    void AddedBehavior()
+    {
+    }
+  }
+}
+
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

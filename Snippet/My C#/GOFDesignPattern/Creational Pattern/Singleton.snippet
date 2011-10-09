@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Singleton</Title>
+      <Author></Author>
+      <Description></Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>Singleton</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="csharp" Kind="" Delimiter="$"><![CDATA[
+// Singleton pattern -- Structural example
+
+using System;
+ 
+namespace DoFactory.GangOfFour.Singleton.Structural
+{
+  /// <summary>
+  /// MainApp startup class for Structural
+  /// Singleton Design Pattern.
+  /// </summary>
+  class MainApp
+  {
+    /// <summary>
+    /// Entry point into console application.
+    /// </summary>
+    static void Main()
+    {
+      // Constructor is protected -- cannot use new
+      Singleton s1 = Singleton.Instance();
+      Singleton s2 = Singleton.Instance();
+ 
+      // Test for same instance
+      if (s1 == s2)
+      {
+        Console.WriteLine("Objects are the same instance");
+      }
+ 
+      // Wait for user
+      Console.ReadKey();
+    }
+  }
+ 
+  /// <summary>
+  /// The 'Singleton' class
+  /// </summary>
+  class Singleton
+  {
+    private static Singleton _instance;
+ 
+    // Constructor is 'protected'
+    protected Singleton()
+    {
+    }
+ 
+    public static Singleton Instance()
+    {
+      // Uses lazy initialization.
+      // Note: this is not thread safe.
+      if (_instance == null)
+      {
+        _instance = new Singleton();
+      }
+ 
+      return _instance;
+    }
+  }
+}]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
